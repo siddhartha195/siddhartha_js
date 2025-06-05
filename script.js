@@ -55,8 +55,8 @@ const myn2 = Arr.splice(1, 3)
 
 //string
 
-const name = "siddhartha"
-const repoCount = 10
+// const name = "siddhartha"
+// const repoCount = 10
 
 //console.log(name + repoCount + "value")
 
@@ -88,12 +88,12 @@ const url = "https://dcgaming.com/siddhatha%20onlinegaming"
 
 //number method
 
-const a = true
-const b = false
-const c = 100
-const d = "100"
-const e = "Hello"
-const f = new Date()
+//const a = true
+//const b = false
+//const c = 100
+//const d = "100"
+//const e = "Hello"
+//const f = new Date()
 
 //console.log("true:" + Number(a) );
 //console.log("false:" + Number(b) );
@@ -121,10 +121,184 @@ const myNumers = [1,2,3,4,5,6,7,8,9,10]
   //               .filter( (num) => num >= 40 )  //( this is the channing method where we can use multiple method at the same time )
 //console.log(newNums);
 
-const myNums = [1,2,3,4]
+//const myNums = [1,2,3,4]
 
-const myTotal = myNums.reduce(function (acc, currval) {
-    return acc + currval
-}, 0)
+//const myTotal = myNums.reduce(function (acc, currval) {
+    ///return acc + currval
+//}, 0)
 
-console.log(myTotal);
+//console.log(myTotal);
+
+
+//this function
+
+//const user = {
+  //name: 'siddhatha',
+  //age: 25,
+
+  //welcomeMessage: function() {
+    //console.log(`Hello, my name is ${this.name} and I am ${this.age}`);
+  //}
+//}
+
+//user.welcomeMessage()
+//user.name = "sam"
+//user.welcomeMessage()
+//console.log(this);
+
+
+//promise method
+
+//const ride = new Promise((resolve, reject) => {
+ // if (arrived) {
+  //  resolve("You have arrived");
+  //} else {
+    //reject("You have not arrived");
+    
+  //}
+
+//});
+
+//console.log(ride);
+
+//scope method global and local scope
+
+//let a = 300  //(global scope)
+//if (true) {
+  //let a = 10
+  //const b = 20
+ // console.log( "INNER ", a, b);
+
+//}
+
+//console.log(a); 
+
+//arrow function
+//const chai = () => {
+  //console.log("chai is a testing framework");
+
+//}
+//console.log(chai());
+
+//const addtwo = (num1, num2) => {
+  //return num1 + num2
+//}
+
+//console.log(addtwo(45,75))
+
+
+
+//Declaration and expressions
+
+//function sum(a, b) {
+  //return a + b;
+//}
+
+//console.log(sum(12, 20))  //(there is sum is a declearation)
+
+
+//expressions
+
+//let sum = function (a, b) {
+  //return a + b;
+//}
+
+//console.log(sum(2, 5));
+
+//coercion type
+
+let num = 10;
+let str = "20";
+let result = num + str;
+
+//console.log(result);       //(the two operands are of different dta types js will convert one of t the operand to match other )
+
+
+//const let var
+
+
+// const accountId = 451278
+// let accountEmil = "dnew@google.com"
+// var accountPassword = "120350"
+// accountCity = "jaipur"
+
+
+// accountEmil = "ewe@cc.com"
+// accountPassword = "121212"
+// accountCity = "benguluru"
+
+// console.log(accountId);
+// console.log(accountEmil);
+// console.log(accountPassword);
+// console.log(accountCity);
+
+//or we can as use table 
+
+// console.table([accountId, accountEmil, accountPassword, accountCity]) 
+
+
+
+//Desstructuring 
+
+// const userData = {
+//   name : "siddhartha",
+//   age : 20,
+//   deg : "bca"
+
+// }
+
+// console.log(userData.name, userData.age, userData.deg);
+
+// const userData = {
+//   name : "siddhartha",
+//   age : 20,
+//   deg : "bca"
+
+// }
+// //using destructur method
+// let { name, age, deg} = userData;
+// console.log(`my name is ${name}, my age is  ${age}, my degree is ${deg }`)
+
+
+//error handling
+
+// setTimeout(() => {
+//   console.log("sending massege..... please wait...");
+// })
+
+// try{
+//   console.log("user offline");
+// }
+// catch(error){
+//   console.log("user not availible error");
+// }
+
+// setTimeout(() =>{
+//   console.log("message sent to the user");
+// })
+
+// setTimeout(() => {
+//   console.log("message delivered to the user");
+// })
+
+// setTimeout(() => {
+//   console.log("message read by the user");
+// })
+
+
+//parse
+
+let data = `{
+  "name": "siddhartha",
+  "age": 20,
+  "deg": "bca",
+  "passport_no": "451785242",
+  "address": {
+    "street": "abc",
+     "city": "barabanki",
+     "state": "up"
+  }   
+}`;
+
+let dobject = JSON.parse(data);
+console.log(dobject['name']);
