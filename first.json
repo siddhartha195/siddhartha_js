@@ -1,0 +1,8 @@
+{
+    "name": "siddhartha",
+    "age": 25,
+    "address": "delhi",
+    "phone": "1234567890",
+    "shopItem": ["shoes", "t-shirt", "shirt", "pant"]
+}
+
