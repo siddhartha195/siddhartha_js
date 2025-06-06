@@ -1,13 +1,13 @@
  //objects
- const mysym = Symbol("key1")
+//  const mysym = Symbol("key1")
 
-        const JsUser = {
-            name : "siddhartha",
-            age : "20",
-            email : "siddhartha@google.com",
-            mobile : "4512369870",
-            [mysym] : "mykey1",
-        }
+//         const JsUser = {
+//             name : "siddhartha",
+//             age : "20",
+//             email : "siddhartha@google.com",
+//             mobile : "4512369870",
+//             [mysym] : "mykey1",
+//         }
 
        // console.log(JsUser.email)
        // console.log(JsUser.name)
@@ -17,38 +17,38 @@
 
 
 //array
-const Arr = [1, 2, 3, 4, 5, 6]
-const Heros = ["ironman", "superman"]
+// const Arr = [1, 2, 3, 4, 5, 6]
+// const Heros = ["ironman", "superman"]
 
-const arr2 = new Array(1,2,3,4)
+// const arr2 = new Array(1,2,3,4)
 //console.log(Arr[0]);
 
 //array method
-Arr.push(7)
-Arr.push(8)
-Arr.pop()
+// Arr.push(7)
+// Arr.push(8)
+// Arr.pop()
 //console.log(Arr);
 
-Arr.unshift(9)
-Arr.shift()
+// Arr.unshift(9)
+// Arr.shift()
 //console.log(Arr);
 
 //console.log(Arr.includes(9))
 //console.log(Arr.indexOf(5))
 
-const newArr = Arr.join()
+//const newArr = Arr.join()
 //console.log(newArr);
 
 //slice, splice
 
 //console.log("A", Arr);
 
-const myn1 = Arr.slice(1,3)
+//const myn1 = Arr.slice(1,3)
 
 //console.log(myn1);
 //console.log( "B",Arr);
 
-const myn2 = Arr.splice(1, 3)
+//const myn2 = Arr.splice(1, 3)
 //console.log("c", Arr);
 //console.log(myn2);
 
@@ -62,7 +62,7 @@ const myn2 = Arr.splice(1, 3)
 
 //console.log(`Hello  my name is ${name} and my repocount is ${repoCount}`);
 
-const gameName = new String('dcgaming')
+//const gameName = new String('dcgaming')
 
 //console.log(gameName[0]);
 //console.log(gameName.__proto__);
@@ -72,16 +72,16 @@ const gameName = new String('dcgaming')
 //console.log(gameName.charAt(5));
 //console.log(gameName.indexOf('g'));
 
-const newString = gameName.substring(0,5)
+//const newString = gameName.substring(0,5)
 //console.log(newString);
 
-const anotherString = gameName.slice(-7, 4)
+//const anotherString = gameName.slice(-7, 4)
 //console.log(anotherString);
 
-const newStringOne = "    dcgaming     "
+//const newStringOne = "    dcgaming     "
 //console.log(newStringOne.trim()); //trim use to cut the xtra space
 
-const url = "https://dcgaming.com/siddhatha%20onlinegaming"
+//const url = "https://dcgaming.com/siddhatha%20onlinegaming"
 //console.log(url.replace('%20', '-'));
 
 //console.log(url.includes('siddhatha'));
@@ -111,7 +111,7 @@ const url = "https://dcgaming.com/siddhatha%20onlinegaming"
 //} )
 //console.log(newNums);
 
-const myNumers = [1,2,3,4,5,6,7,8,9,10]
+//const myNumers = [1,2,3,4,5,6,7,8,9,10]
 
 //const newNums = myNumers.map(  (num) => num + 10 )
 
@@ -207,9 +207,9 @@ const myNumers = [1,2,3,4,5,6,7,8,9,10]
 
 //coercion type
 
-let num = 10;
-let str = "20";
-let result = num + str;
+// let num = 10;
+// let str = "20";
+// let result = num + str;
 
 //console.log(result);       //(the two operands are of different dta types js will convert one of t the operand to match other )
 
@@ -288,17 +288,134 @@ let result = num + str;
 
 //parse
 
-let data = `{
-  "name": "siddhartha",
-  "age": 20,
-  "deg": "bca",
-  "passport_no": "451785242",
-  "address": {
-    "street": "abc",
-     "city": "barabanki",
-     "state": "up"
-  }   
-}`;
+// let data = `{
+//   "name": "siddhartha",
+//   "age": 20,
+//   "deg": "bca",
+//   "passport_no": "451785242",
+//   "address": {
+//     "street": "abc",
+//      "city": "barabanki",
+//      "state": "up"
+//   }   
+// }`;
 
-let dobject = JSON.parse(data);
-console.log(dobject['name']);
+// let dobject = JSON.parse(data);
+// console.log(dobject['name']);
+
+
+//stringify
+
+// let student = {
+//   name: "siddhartha",
+//   age: 20,
+//   deg: "bca",
+//   city: "delhi"
+
+// }
+
+// let jdata = JSON.stringify(student);
+
+// console.log(jdata)
+
+
+//currying
+
+// function sendAutoEmail(to){
+//   return function(subject){
+//     return function (body){
+//       console.log(`sent email to ${to} with the ${subject} to body ${body}`)
+//     }
+//   }
+// }
+
+// let step1 = sendAutoEmail("siddhartha@google.com")
+// let step2 = step1("new order confirmation")
+// let step3 = step2("your order is confirmed")
+
+//2ndway by using arrow function
+
+// const sendAutoEmail = (to) => (subject) => (body) => `sent email to ${to} with the ${subject} to body ${body}`
+// let step1 = sendAutoEmail("siddhartha@google.com")
+// let step2 = step1("new order confirmation")
+// let step3 = step2("your order is confirmed")
+// console.log(step3)
+
+
+// function add (a) {
+//   return function(b) {
+//     return function(c) {
+//       return a + b + c
+//     }
+//   }
+// } 
+// console.log(add(2) (5) (8));
+
+//or we can use arrow function 
+
+// const add = (a) => (b) => (c) => a+b+c;
+// console.log(add(2)(5)(8));
+
+
+
+
+//SYNCHRONOUS
+
+//console.log("hello siddhartha")
+//console.log("world siddhartha")
+//console.log("hello siddhartha") //this will be printed after world siddhar
+
+
+//ASYNCHRONOUS
+
+// console.log("please wait your order is in progress");
+// setTimeout(() => {
+//   console.log("your order is confirmed");
+// }, 1000);
+// console.log("your order is in progress"); //this will be printed before your order is confirmed
+
+
+
+//promises
+// let a = 10;
+// let b = 20;
+
+// let result = a + b;
+
+// const ride = new Promise((resolve, reject) => {
+//   if ("arrived") {
+//     resolve("You have arrived");
+//   } else {
+//     reject("You have not arrived");
+    
+//   }
+
+// });
+
+// async function main() {
+//   console.log(result);
+//   try {
+//     const rideResult = await ride;
+//     console.log(rideResult);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+
+// main();
+
+// console.log(result);
+// console.log(ride); //this will be printed before result
+
+
+
+//closure example
+
+// function init(multiplier){
+//   return function multiply(number){
+//     return number * multiplier;
+//     }
+// }
+// const double = init(2);
+// const triple = init(3);
+// console.log(double(5)); //10

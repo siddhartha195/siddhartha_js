@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
      <title>js operators</title>
@@ -41,5 +41,36 @@
 <body>
     
 </body>
-<script src="script.js"></script>
+
+</html> -->
+
+
+<!--document object model-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Student Prompt</title>
+</head>
+<body>
+
+  <button>Click Me</button>
+
+  <script>
+    let namasteBtn = document.querySelector('button');
+
+    namasteBtn.addEventListener('click', inputMsg);
+
+    function inputMsg() {
+      let name = prompt('Enter name of student');
+      if (name && name.trim()) {
+        namasteBtn.textContent = 'roll no 1: ' + name.trim();
+      } else {
+        alert('Invalid name');
+      }
+    }
+
+    console.log(namasteBtn);
+  </script>
+
+</body>
 </html>
