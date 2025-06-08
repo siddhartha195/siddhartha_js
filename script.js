@@ -419,3 +419,108 @@
 // const double = init(2);
 // const triple = init(3);
 // console.log(double(5)); //10
+
+
+
+//garbage collection
+// let a = 10;
+// let b = 20;
+// let c = a;
+// a = 30;
+// console.log(c); //10
+// c = null;
+// console.log(c); //null
+// console.log(a); //30
+// console.log(b); //20
+
+
+//event loop //the event loop is the machanishm in js that handles asynchronus operations it decide which code will executed and when.
+
+// console.log("start..")
+
+// setTimeout(() => {
+//   console.log("settimeout callback");
+// });
+// Promise.resolve().then(() =>{
+//   console.log("promise resolve");
+// })
+// console.log("end..")
+
+
+
+//macrotask queue
+ //represent border often I/O related operations
+//like settimeout, setinterval, setimmediate
+//executed one by one by macro task queue
+
+//  console.log("start..")
+//  setTimeout(() =>
+//    {
+//    console.log("settimeout callback");
+//  }, 0);
+// console.log("end..")
+
+//microtask queue
+
+//represent smaller more immediate operations
+//like promise callback, queueMicrotask, process.nextTick(in node js)
+//extended immediately after the current macro task before the next macro task
+
+//  console.log("start..")
+//  Promise.resolve().then(() =>
+//      {
+//    console.log("promise resolve");
+//  });
+//    console.log("end..")
+
+
+//stack memory(primitive type)(number, boolean)
+
+//stack memory is used for function call stack
+//it is a LIFO(last in first out) data structure
+//it is used to store the function call stack
+// let myName = "siddharthaSrivastava"
+
+// let anothername = "siddharthaSrivastava"
+// anothername = "princesrivastava"
+
+// console.log(myName);
+// console.log(anothername);
+
+
+//Example2
+
+// let userOne = {
+//   name: "siddharthaSrivastava",
+//   age: 25,
+// }
+
+// let userTwo = userOne
+// userTwo.name = "princesrivastava"
+// console.log(userOne.name);
+// console.log(userTwo.name);
+
+
+//heap memory(non primitive)
+//heap memory is used for storing objects, arrays, functions etc.
+//it is a dynamic memory allocation
+//it is used to store the objects and arrays etc.
+//heap memory is used for storing objects, arrays, functions etc.
+//it is a dynamic memory allocation
+
+
+
+//hoisting
+//we can use any variable before its decleartion
+
+// console.log(a);
+// var a = 10;
+
+// console.log(a);
+
+// Sum (10,20)
+// function Sum(a,b){
+//   console.log(a+b);
+//   }
+  
+
