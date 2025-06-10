@@ -523,4 +523,213 @@
 //   console.log(a+b);
 //   }
   
+//object in depth
+// const person = {
+//   name: "siddhartha",
+//   age: 30,
+//   isStudent: false
+// };
+// console.log([person.name],[person.age],[person.isStudent]);
 
+
+// const car = {
+//   make: "Toyota",
+//   model: "Camry",
+//   year: 2022,
+//   color: "blue"
+// };
+// console.log(car.make,car.model,car.year,car.color);
+
+
+
+
+// const user = {
+//   id: 101,
+//   profile: {
+//     name: "siddhartha srivastava",
+//     email: "siddhartha@google.com"
+//   }
+// };
+// console.log(user.id,user.profile.name,user.profile.email);
+
+
+
+// const calculator = {
+//   add: function(a, b) {
+//     return a + b;
+//   }
+// };
+// console.log(calculator.add(10, 20));
+
+
+
+// const book = new Object();
+// book.title = "1984";
+// book.author = "George Orwell";
+// console.log(book.title,book.author);
+
+
+
+// function greet(name) {
+//   return `Hello, ${name}!`;
+// }
+// greet.language = "English"; // functions are also objects
+// console.log(greet.language);
+
+
+
+// const key = "score";
+// const game = {
+//   [key]: 95
+// };
+// console.log(game.score);
+
+
+// const id = Symbol("id");
+// const user = {
+//   name: "Emma",
+//   [id]: 1234
+// };
+// console.log(user.id); 
+
+
+
+//aaray all method
+
+//push method
+// const fruits = ["apple", "banana"];
+// fruits.push("cherry");
+// console.log(fruits); 
+// console.log(fruits.length); 
+
+
+
+//pop method
+
+// const fruits = ["apple", "banana", "cherry"];
+// fruits.pop();
+// console.log(fruits); 
+// console.log(fruits.length); 
+
+
+
+//shift method
+
+// const numbers = [10, 20, 30];
+// numbers.shift();
+// console.log(numbers); 
+
+
+//unshift method
+// const numbers = [20, 30];
+// numbers.unshift(10);
+// console.log(numbers); 
+
+
+//map method
+
+// const nums = [1, 2, 3];
+// const squared = nums.map(n => n * n);
+// console.log(squared); 
+// console.log(nums); 
+
+
+//filter method
+
+
+// const nums = [1, 2, 3, 4];
+// const even = nums.filter(n => n % 2 === 0);
+// console.log(even); 
+// console.log(nums); 
+
+
+
+//reduce method
+
+// const nums = [1, 2, 3, 4];
+// const sum = nums.reduce((acc, curr) => acc + curr, 0);
+// console.log(sum); 
+// console.log(nums);
+
+
+//find method
+
+// const users = [{ id: 1 }, { id: 2 }];
+// const found = users.find(user => user.id === 2);
+// console.log(found); 
+// console.log(users); 
+
+
+
+//include method
+
+// const colors = ["red", "blue", "green"];
+// console.log(colors.includes("white")); 
+// console.log(colors.includes("red"));  
+
+
+
+//sort method
+
+// const nums = [3, 1, 4, 2];
+// nums.sort();
+// console.log(nums); // [1, 2, 3, 4]
+
+
+// nums.sort((a, b) =>
+//   a - b
+// );
+// console.log(nums); 
+
+
+//string
+
+//String with Template Literals (Backticks)
+const name = "Bob";
+const message = `Hello, ${name}!`;
+console.log(name); 
+console.log(message); 
+
+// Multiline String using Template Literals
+const poem = `Roses are red,
+Violets are blue,
+JavaScript is awesome,
+And so are you!`;
+console.log(poem);
+
+
+//String with Escape Characters
+const str = "Hello, \n world!";
+console.log(str); 
+
+
+//Concatenated String
+
+const first = "Hello";
+const second = "World";
+const combined = first + " " + second;
+console.log(combined);
+
+
+//String from a Number
+const age = String(25); // "25"
+console.log(age);
+
+
+//String as a Character Array
+
+const word = "code";
+console.log(word[0]); 
+console.log(word[1]); 
+
+
+//Empty String
+
+const empty = "";
+console.log(empty);
+
+
+//String with Unicode Characters
+
+const emoji = "I love JavaScript ❤️";
+console.log(emoji);
