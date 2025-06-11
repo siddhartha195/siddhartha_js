@@ -1,6 +1,8 @@
  //objects
 //  const mysym = Symbol("key1")
 
+const { log, info } = require("console");
+
 //         const JsUser = {
 //             name : "siddhartha",
 //             age : "20",
@@ -685,51 +687,275 @@
 //string
 
 //String with Template Literals (Backticks)
-const name = "Bob";
-const message = `Hello, ${name}!`;
+// const name = "Bob";
+// const message = `Hello, ${name}!`;
+// console.log(name); 
+// console.log(message); 
+
+// // Multiline String using Template Literals
+// const poem = `Roses are red,
+// Violets are blue,
+// JavaScript is awesome,
+// And so are you!`;
+// console.log(poem);
+
+
+// //String with Escape Characters
+// const str = "Hello, \n world!";
+// console.log(str); 
+
+
+// //Concatenated String
+
+// const first = "Hello";
+// const second = "World";
+// const combined = first + " " + second;
+// console.log(combined);
+
+
+// //String from a Number
+// const age = String(25); // "25"
+// console.log(age);
+
+
+// //String as a Character Array
+
+// const word = "code";
+// console.log(word[0]); 
+// console.log(word[1]); 
+
+
+// //Empty String
+
+// const empty = "";
+// console.log(empty);
+
+
+// //String with Unicode Characters
+
+// const emoji = "I love JavaScript ❤️";
+// console.log(emoji);
+
+
+
+//promise method in js
+//fake api cll
+// function fakeFetch() {
+//   return new Promise((resolve, reject) => {
+//     let success = true;
+//     setTimeout(() => {
+//       success ? resolve("Data") : reject("Error");
+//     }, 2000);
+//   });
+// }
+
+// fakeFetch().then(console.log).catch(console.error);
+// console.log(fakeFetch()); 
+
+
+// //delay with example (settimeout)
+// let delay = new Promise((resolve) => {
+//   setTimeout(() => resolve("3 sec delay"), 3000);
+// });
+
+// delay.then(msg => console.log(msg));
+// console.log(delay);  
+
+//File Read
+// function readFile(file) {
+//   return new Promise((resolve, reject) => {
+//     if (file === "data.txt") {
+//       resolve("file read");
+//     } else {
+//       reject("file not found");
+//     }
+//   });
+// }
+
+// readFile("data.txt").then(console.log).catch(console.error);
+// console.log(readFile("data.txt"));
+
+//User Login Simulation
+// function login(username, password) {
+//   return new Promise((resolve, reject) => {
+//     if (username === "admin" && password === "1234") {
+//       resolve("Login successful");
+//     } else {
+//       reject("Login failed");
+//     }
+//   });
+// }
+
+// login("admin", "1234").then(console.log).catch(console.error);
+// console.log(login("admin", "1234"));
+
+
+//image load
+
+// function loadImage(url) {
+//   return new Promise((resolve, reject) => {
+//     let img = new Image();
+//     img.src = url;
+//     img.onload = () => resolve("Image Loaded");
+//     img.onerror = () => reject("Image Error");
+//   });
+// }
+
+// loadImage("https://random-image-pepebigotes.vercel.app/api/random-image").then(console.log).catch(console.error);
+
+
+// multiple promise with using promish all
+
+// let p1 = Promise.resolve("Data1");
+// let p2 = Promise.resolve("Data2");
+
+// Promise.all([p1, p2]).then(results => console.log(results));
+
+
+//  chaning promise
+
+// new Promise((resolve) => resolve(10))
+//   .then(num => num * 2)
+//   .then(result => console.log("Result:", result));
+
+
+ // handling error with catch
+
+//   new Promise((_, reject) => reject("something went wrong"))
+//   .then(result => console.log(result))
+//   .catch(error => console.error("Error:", error));
+
+
+//   // finally 
+
+//   new Promise((resolve) => resolve("work complete"))
+//   .then(result => console.log(result))
+//   .finally(() => console.log("always running"));
+
+
+//   // conditional resolve/ reject
+
+//   function checkAge(age) {
+//   return new Promise((resolve, reject) => {
+//     age >= 18 ? resolve("Adult") : reject("Minor");
+//   });
+// }
+
+// checkAge(20).then(console.log).catch(console.error);
+// checkAge(15).then(console.log).catch(console.error);
+
+
+
+// destructuring is a feature of a js which helps to find out the values from array/objects to direct assign in the variables.
+// it is a shorthand way to assign values from array/objects to variables.
+// it is a way to unpack values from arrays or objects into distinct variables.
+// it is a way to assign values from arrays or objects to variables in a more readable way.
+
+
+
+// Array Destructuring
+
+let [x, y] = [5, 10];
+console.log(x); // 5
+console.log(y); // 10
+
+
+// Skipping Items
+
+// let [a, , c] = [1, 2, 3];
+// console.log(a); 
+// console.log(c); 
+
+
+// Swap Values
+
+let p = 1, q = 2;
+[p, q] = [q, p];
+console.log(p, q); 
+
+
+// Default Values
+
+// let [m = 5, n = 10] = [7];
+// console.log(m); 
+// console.log(n); 
+
+
+//Nested Array Destructuring
+
+// let [a, [b, c]] = [1, [2, 3]];
+// console.log(a); 
+// console.log(b); 
+// console.log(c); 
+
+
+//  Object Destructuring
+
+// let person = { name: "Ravi", city: "Delhi" };
+// let { name, city } = person;
+// console.log(name);
+// console.log(city); 
+
+
+// Rename Variables
+
+// let { name: userName } = { name: "Sunil" };
+// console.log(userName); 
+// console.log(name);
+
+
+// Default Values in Objects
+
+// let { age = 18 } = {};
+// console.log(age); 
+
+
+// Nested Object Destructuring
+
+// let user = {
+//   id: 1,
+//   profile: {
+//     firstName: "Anil",
+//     lastName: "Kumar"
+//   }
+// };
+
+// let { profile: { firstName, lastName } } = user;
+// console.log(firstName); 
+// console.log(lastName);
+//or
+
+let student = {
+  id: 101,
+  info: {
+    name: "Ravi",
+    address: {
+      city: "Delhi",
+      zip: 110001
+    }
+  }
+};
+
+let {
+  info: {
+    name,
+    address: { city, zip }
+  }
+} = student;
+
 console.log(name); 
-console.log(message); 
+console.log(city); 
+console.log(zip);  
 
-// Multiline String using Template Literals
-const poem = `Roses are red,
-Violets are blue,
-JavaScript is awesome,
-And so are you!`;
-console.log(poem);
+//  Function Parameter Destructuring
 
+// function show({ title, year }) {
+//   console.log(`${title} was released in ${year}`);
+// }
 
-//String with Escape Characters
-const str = "Hello, \n world!";
-console.log(str); 
+// let movie = { title: "3 Idiots", year: 2009 };
+// show(movie); 
 
 
-//Concatenated String
-
-const first = "Hello";
-const second = "World";
-const combined = first + " " + second;
-console.log(combined);
 
 
-//String from a Number
-const age = String(25); // "25"
-console.log(age);
-
-
-//String as a Character Array
-
-const word = "code";
-console.log(word[0]); 
-console.log(word[1]); 
-
-
-//Empty String
-
-const empty = "";
-console.log(empty);
-
-
-//String with Unicode Characters
-
-const emoji = "I love JavaScript ❤️";
-console.log(emoji);
