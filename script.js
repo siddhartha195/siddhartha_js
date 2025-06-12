@@ -1239,9 +1239,9 @@ let robot = {
 
 robot.talk(); 
   
-// type of method                  work
-// Simple Method	            perform the action
-// this के साथ	              access the object data
+// type of method                   work
+// Simple Method	             perform the action
+// this                     access the object data
 // Arrow Method              (avoid) this is not work in the arrow
 // Calculation Method         	plus minus divied 
 // Update Method	            changing the object value
