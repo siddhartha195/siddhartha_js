@@ -855,9 +855,9 @@ const { log, info } = require("console");
 
 // Array Destructuring
 
-let [x, y] = [5, 10];
-console.log(x); // 5
-console.log(y); // 10
+// let [x, y] = [5, 10];
+// console.log(x); // 5
+// console.log(y); // 10
 
 
 // Skipping Items
@@ -869,9 +869,9 @@ console.log(y); // 10
 
 // Swap Values
 
-let p = 1, q = 2;
-[p, q] = [q, p];
-console.log(p, q); 
+// let p = 1, q = 2;
+// [p, q] = [q, p];
+// console.log(p, q); 
 
 
 // Default Values
@@ -925,27 +925,27 @@ console.log(p, q);
 // console.log(lastName);
 //or
 
-let student = {
-  id: 101,
-  info: {
-    name: "Ravi",
-    address: {
-      city: "Delhi",
-      zip: 110001
-    }
-  }
-};
+// let student = {
+//   id: 101,
+//   info: {
+//     name: "Ravi",
+//     address: {
+//       city: "Delhi",
+//       zip: 110001
+//     }
+//   }
+// };
 
-let {
-  info: {
-    name,
-    address: { city, zip }
-  }
-} = student;
+// let {
+//   info: {
+//     name,
+//     address: { city, zip }
+//   }
+// } = student;
 
-console.log(name); 
-console.log(city); 
-console.log(zip);  
+// console.log(name); 
+// console.log(city); 
+// console.log(zip);  
 
 //  Function Parameter Destructuring
 
@@ -957,5 +957,291 @@ console.log(zip);
 // show(movie); 
 
 
+//loops
+
+ //for loop
+// let i = 0;
+
+// for (i = 1; i <= 5; i++) {
+//   console.log("i =", i)
+// }
+// console.log ("i++ =",i++);
 
 
+
+ //while loop
+
+// let a = 10;
+// while(a <= 10){
+//   console.log("a =", a);
+//   a++;
+// }
+// console.log("a++ =", a)
+
+
+//do while loop
+
+// let x = 2;
+// do{
+//   console.log("x =", x);
+//   x++;
+// } while (x <= 5)
+
+
+//for of loop
+
+// let m = [1,2,3,4,5,6,7,8,9];
+// for (let num of m) {
+//   console.log(num);
+//   }
+
+
+//for in loop
+
+// let student = {
+//   name: "siddhartha",
+//   age: 20,
+//   grade: 90
+// };
+// for (let key in student) {
+//   console.log(key, student[key]);
+// }
+
+// for loop is used for repeeting work with count.
+//while loop is used to check the condition first anf if the condition is true then run .
+//do while loop is used to run the code first and then check the condition.
+//for of loop is used to iterate over the array.
+//for in loop is used to iterate over the object.
+
+
+
+//js statement 
+// in js statement is a instructions which is read one by one by the browser and then execute .
+//js statement can be a variable declaration, function declaration, expression, control flow statement, etc.
+//js statement can be used to declare a variable, assign a value to a variable, perform an operation, make a decision, loop through a set of values, etc.
+
+
+//1. Variable Declaration Statement
+// let name = "Rahul";
+// console.log(name);
+// // here's the name is a variable 
+
+
+// Assignment Statement
+// let age;
+// age = 10;
+// console.log ("age =", age);
+
+
+//Conditional Statement (if)
+
+// if (age >= 18) {
+//   console.log("you are eligible to vote");
+// }
+// here's the if statement is used to check the condition and if the condition is true then print
+
+
+// if-else Statement
+
+// if (age >= 18 ) {
+//   console.log("you are eligible to vote");
+// } else {
+//   console.log("you are not eligible to vote");
+// }
+// here's the if-else statement is used to check the condition and if the condition is tru
+
+
+//Loop Statement (for loop)
+
+// for (let i = 1; i <=5; i++ ){
+//   console.log(i);
+// }
+// here's the for loop is used to iterate over the array and print the value of i from
+
+
+// Function Declaration Statement
+
+// function greet() {
+//   console.log("hello sir");
+// }
+// greet();
+
+
+
+//Switch Statement
+
+// let day = 0;
+// switch (day) {
+//   case 1: console.log("monday"); break;
+//   case 2: console.log("tuesday"); break;
+//   default: console.log("error");
+// }
+
+
+//Return Statement (inside function)
+// function add(a, b) {
+//   return a + b;
+// }
+// console.log(add(5, 6));  
+
+
+//Break Statement
+
+// for(let x = 1; x <= 10; x++ ) {
+//   if (x == 5)break;
+//   console.log(x);
+
+// }
+
+
+// Statement Type	               work
+// Declaration	           Variable/function banana 
+// Assignment	                Value dena
+// Conditional	             decision lena (if/else)
+// Loop	                   baar baar koi kaam krna
+// Function Call	         any function ko chalana
+// Break/Continue	          Loop ko control karna
+
+
+
+//Object Methods
+
+//structure of object method
+// let person = {
+//   name: "Ravi",
+//   greet: function() {
+//     console.log("Hello, " + this.name);
+//   }
+// };
+// person.greet(); 
+//here's the greet is a method which inside the object
+
+//simple method inside object
+let car = {
+  brand: "Tata",
+  modal: "safari",
+  start: function() {
+    console.log("Car started");
+  }
+}
+car.start();
+
+
+//Method using this keyword
+
+// let user = {
+//   name: "ravi",
+//   sayHello: function() {
+//     console.log("hello, "+ this.name);
+//   }
+// };
+// user.sayHello();
+
+
+//the defrence between arrow function and this function
+
+let student = {
+  name: "Riya",
+  show: () => {
+    console.log("name is " + this.name);
+  }
+};
+student.show(); // undefined
+// here's the this keyword is not working as expected because of arrow function and the result is undifined
+
+
+//Object के अंदर calculation करने वाला method
+
+let calculator = {
+  add: function(a, b){
+    return a + b;
+  }
+};
+console.log(calculator.add(15, 95));
+
+
+//calling one method to inside a method
+
+let person = {
+  name: "Rohan",
+  greet: function () {
+    console.log("Hello!");
+  },
+  intro: function () {
+    this.greet();
+    console.log("I am " + this.name);
+  }
+};
+
+person.intro();
+
+
+//define shorthand to function inside the object
+
+let laptop = {
+  brand: "HP",
+  show() {
+    console.log("Laptop brand: " + this.brand);
+  }
+};
+
+laptop.show(); 
+
+
+//changing the value of object by method
+
+let light = {
+  status: "off",
+  toggle: function () {
+    this.status = this.status === "off" ? "on" : "off";
+  }
+};
+
+light.toggle();
+console.log(light.status); 
+
+
+//object mai method se input lena
+
+let user = {
+  setName: function (newName) {
+    this.name = newName;
+  }
+};
+
+user.setName("Neha");
+console.log(user.name); 
+
+
+//nested object method in object
+
+let employee = {
+  info: {
+    name: "Vikram",
+    showName: function () {
+      console.log("Employee: " + this.name);
+    }
+  }
+};
+
+employee.info.showName(); 
+
+
+//assign object method by diffrent function
+
+function speak() {
+  console.log("I can speak");
+}
+
+let robot = {
+  talk: speak
+};
+
+robot.talk(); 
+  
+// type of method                  work
+// Simple Method	            perform the action
+// this के साथ	              access the object data
+// Arrow Method              (avoid) this is not work in the arrow
+// Calculation Method         	plus minus divied 
+// Update Method	            changing the object value
