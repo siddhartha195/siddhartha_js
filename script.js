@@ -1117,14 +1117,14 @@ const { log, info } = require("console");
 //here's the greet is a method which inside the object
 
 //simple method inside object
-let car = {
-  brand: "Tata",
-  modal: "safari",
-  start: function() {
-    console.log("Car started");
-  }
-}
-car.start();
+// let car = {
+//   brand: "Tata",
+//   modal: "safari",
+//   start: function() {
+//     console.log("Car started");
+//   }
+// }
+// car.start();
 
 
 //Method using this keyword
@@ -1140,104 +1140,104 @@ car.start();
 
 //the defrence between arrow function and this function
 
-let student = {
-  name: "Riya",
-  show: () => {
-    console.log("name is " + this.name);
-  }
-};
-student.show(); // undefined
+// let student = {
+//   name: "Riya",
+//   show: () => {
+//     console.log("name is " + this.name);
+//   }
+// };
+// student.show(); // undefined
 // here's the this keyword is not working as expected because of arrow function and the result is undifined
 
 
 //Object के अंदर calculation करने वाला method
 
-let calculator = {
-  add: function(a, b){
-    return a + b;
-  }
-};
-console.log(calculator.add(15, 95));
+// let calculator = {
+//   add: function(a, b){
+//     return a + b;
+//   }
+// };
+// console.log(calculator.add(15, 95));
 
 
 //calling one method to inside a method
 
-let person = {
-  name: "Rohan",
-  greet: function () {
-    console.log("Hello!");
-  },
-  intro: function () {
-    this.greet();
-    console.log("I am " + this.name);
-  }
-};
+// let person = {
+//   name: "Rohan",
+//   greet: function () {
+//     console.log("Hello!");
+//   },
+//   intro: function () {
+//     this.greet();
+//     console.log("I am " + this.name);
+//   }
+// };
 
-person.intro();
+// person.intro();
 
 
 //define shorthand to function inside the object
 
-let laptop = {
-  brand: "HP",
-  show() {
-    console.log("Laptop brand: " + this.brand);
-  }
-};
+// let laptop = {
+//   brand: "HP",
+//   show() {
+//     console.log("Laptop brand: " + this.brand);
+//   }
+// };
 
-laptop.show(); 
+// laptop.show(); 
 
 
 //changing the value of object by method
 
-let light = {
-  status: "off",
-  toggle: function () {
-    this.status = this.status === "off" ? "on" : "off";
-  }
-};
+// let light = {
+//   status: "off",
+//   toggle: function () {
+//     this.status = this.status === "off" ? "on" : "off";
+//   }
+// };
 
-light.toggle();
-console.log(light.status); 
+// light.toggle();
+// console.log(light.status); 
 
 
 //object mai method se input lena
 
-let user = {
-  setName: function (newName) {
-    this.name = newName;
-  }
-};
+// let user = {
+//   setName: function (newName) {
+//     this.name = newName;
+//   }
+// };
 
-user.setName("Neha");
-console.log(user.name); 
+// user.setName("Neha");
+// console.log(user.name); 
 
 
 //nested object method in object
 
-let employee = {
-  info: {
-    name: "Vikram",
-    showName: function () {
-      console.log("Employee: " + this.name);
-    }
-  }
-};
+// let employee = {
+//   info: {
+//     name: "Vikram",
+//     showName: function () {
+//       console.log("Employee: " + this.name);
+//     }
+//   }
+// };
 
-employee.info.showName(); 
+// employee.info.showName(); 
 
 
 //assign object method by diffrent function
 
-function speak() {
-  console.log("I can speak");
-}
+// function speak() {
+//   console.log("I can speak");
+// }
 
-let robot = {
-  talk: speak
-};
+// let robot = {
+//   talk: speak
+// };
 
-robot.talk(); 
+// robot.talk(); 
   
 // type of method                   work
 // Simple Method	             perform the action
@@ -1245,3 +1245,446 @@ robot.talk();
 // Arrow Method              (avoid) this is not work in the arrow
 // Calculation Method         	plus minus divied 
 // Update Method	            changing the object value
+
+
+
+// Garbage Collection 
+
+// Unused Variable Automatically Removed
+
+// let a = {
+//   name: "Rahul"
+// };
+
+// a = null;
+
+
+
+// Function Scope Example
+
+// function greet() {
+//   let msg = "Hello"; // function scope
+// }
+
+// greet(); 
+// console.log(msg); 
+// ReferenceError: msg is not defined
+
+
+// Object loses reference
+
+// let user = {
+//   name: "Amit"
+// };
+
+// user = { age: 30 }; 
+
+
+// Multiple variables referencing same object
+
+// let obj1 = { value: 100 };
+// let obj2 = obj1;
+
+// obj1 = null; 
+// console.log(obj1); // undefined
+
+
+// Manual reference remove
+
+// let data = {
+//   name: "Test"
+// };
+
+// data = undefined; 
+// console.log(data); 
+
+
+//Circular Reference (Handled by modern JS)
+
+// let a = {};
+// let b = {};
+
+// a.ref = b;
+// b.ref = a;
+
+// a = null;
+// b = null;
+
+// console.log(a); // undefined
+// console.log(b); // undefined
+
+
+//Global Object Never Collected
+
+// let name = "JavaScript"; // global scope
+// globalThis.console.log(name); 
+
+
+// // Array becomes unused
+
+// let arr = [1, 2, 3, 4];
+// arr = null;
+// console.log(arr);
+
+
+// Object property reference removed
+
+
+// let person = {
+//   details: {
+//     name: "Ravi"
+//   }
+// };
+
+// person.details = null;
+// console.log(person.details);
+
+
+// Function returns object, but we ignore
+
+// function makeUser() {
+//   return {
+//     name: "Sam"
+//   };
+// }
+
+// makeUser(); 
+// console.log(makeUser());
+
+
+
+// example                                    what happend
+// Variable null                          memory free
+// Function delete                        inside variable also delete 
+// Circular references                   modern js automatically manage
+// Referencing object delete             convert into garbage
+// Global variable	                    will remain there as long as the page is open
+
+
+
+// memory heap
+
+// In JavaScript, whenever you create a variable, object, array or function, memory is allocated for it.
+// JavaScript divides this memory into two parts:
+
+// Call Stack – where function calls are managed
+
+// Memory Heap – where the memory of variables, objects, arrays etc. is stored
+
+
+// The Memory Heap is where JavaScript stores the data for your objects, arrays, closures, and functions in memory.
+
+// It is an unstructured memory pool, meaning the memory is not in any structure, but JavaScript manages it.
+
+
+
+// Simple Object Heap in Store
+
+// let user = { name: "Ravi" };
+// user object is stored in memory heap
+
+
+// Array is stored in Heap
+
+// let numbers = [1, 2, 3, 4];
+// numbers array is stored in memory heap
+
+
+// Creating an object inside a function
+
+// function createUser() {
+//   let obj = { id: 1 };
+//   return obj;
+// }
+
+// let user = createUser();
+// console.log(createUser(obj1));
+
+
+// Function is stored in Closure Heap
+
+// function outer() {
+//   let message = "Hello";
+//   return function inner() {
+//     console.log(message);
+//   };
+// }
+
+// let greet = outer();
+// greet();
+
+
+// Multiple variables pointing to same heap memory
+
+// let x = { lang: "JS" };
+// let b = x;
+// console.log(b);
+
+
+
+// freeing heap memory from null
+
+// let obj = { key: "value" };
+// obj = null;
+// console.log(obj);
+
+
+// Nested objects are in the heap
+
+// let employee = {
+//   name: "Amit",
+//   address: {
+//     city: "Delhi"
+//   }
+// };
+// console.log( employee.name, employee.address);
+
+
+// object inside array
+
+// let items = [{ id: 1 }, { id: 2 }];
+// console.log(items[0].id, items[1].id);
+
+
+// function as object in heap
+
+// let fun = function () {
+//   console.log("Hi");
+// };
+// console.log(fun.toString());
+
+
+// Memory Leak Example (Do not move from heap)
+
+// let cache = {};
+// function storeData(data) {
+//   cache[data.id] = data;
+// }
+// storeData({ id: 1, name: "Amit" });
+// storeData({ id: 2, name: "Rahul" });
+// If we don't clear the cache, it will cause a memory leak
+// because the objects are still referenced in the cache.
+
+
+
+
+// JSON.stringify
+
+
+// JSON.stringify() is a method that converts a JavaScript object into a JSON string.
+// JSON.stringify() is a JavaScript method that converts a JavaScript object or array to JSON (string format).
+
+// Convert the object or array to a string that you can send over the network (such as in an API call)
+// save to local storage or write to a file
+
+
+//  Syntax:
+// 'JSON.stringify(value, replacer, space);'
+// value: The object or array to be stringified.
+
+// replacer (optional): The property to keep or remove.
+
+// space (optional): For formatting (indentation).
+
+
+// convert basic object onto string
+
+// let user = { name: "Amit", age: 25 };
+// let jsonString = JSON.stringify(user);
+// console.log(jsonString);  // {"name":"Amit","age":25}
+
+
+// stringifying an array
+
+// let fruits = ["apple", "banana", "mango"];
+// console.log(JSON.stringify(fruits));
+
+
+// Stringify Nested Object
+
+// let person = {
+//   name: "Ravi",
+//   address: {
+//     city: "Delhi",
+//     pin: 110001
+//   }
+// };
+// console.log(JSON.stringify(person));
+
+
+// Stringify with indentation (pretty print)
+
+// let data = { name: "Riya", age: 22 };
+// console.log(JSON.stringify(data, null, 2));
+
+
+// Stringify with replacer (only some properties)
+
+// let user = { name: "Aman", age: 26, city: "Mumbai" };
+// console.log(JSON.stringify(user, ["name", "city"]));
+
+
+// Function property is not stringified
+
+
+// let obj = {
+//   name: "Ravi",
+//   greet: function () { return "Hello"; }
+// };
+
+// console.log(JSON.stringify(obj));
+
+
+// undefined value is not stringified
+
+// let obj = {
+//   name: "Riya",
+//   age: undefined
+// };
+// console.log(JSON.stringify(obj));
+//undifined property is not valid in JSON stringify
+
+
+// stringify date object
+
+// let obj = {
+//   today: new Date()
+// };
+// console.log(JSON.stringify(obj));
+
+
+// Boolean, Number, String can also be stringified
+
+// console.log(JSON.stringify(true));
+// console.log(JSON.stringify(123));
+// console.log(JSON.stringify("Hello"));
+
+
+// Stringify and store in localStorage
+
+// let user = { name: "Nina", role: "admin" };
+// localStorage.setItem("user", JSON.stringify(user));
+// console.log(JSON.stringify(user));
+
+
+//send data to the server
+//convert object into string
+//convert data to readable string
+
+
+
+// scope
+
+//Scope means – from where a variable or function can be accessed.In JavaScript, scope decides which variable can be seen or changed from where.
+
+//type of scope- global scope 
+//local scope
+//block scope
+//function scope
+//lexical scope
+//let and const scope
+//var scope
+
+
+//  Global Scope
+
+let name = "Amit";
+
+function greet() {
+  console.log(name);  // "Amit"
+}
+greet();
+// Global scope variables can be accessed from anywhere in the code.
+
+
+// Function Scope
+
+function sayHello() {
+  let message = "Hello!";
+  console.log(message);
+}
+
+sayHello();
+// Function scope variables can be accessed only within the function where they are declared.
+
+
+// Block Scope (let and const)
+
+{
+  let age = 25;
+  console.log(age); 
+}
+// Block scope variables can be accessed only within the block where they are declared.
+
+
+// Var is function-scoped, not block-scoped
+
+{
+  var city = "Delhi";
+}
+console.log(city);
+// Var is function-scoped, not block-scoped. It can be accessed outside the block wher
+
+
+//  Nested Scope (Function inside Function)
+
+function outer() {
+  let outerVar = "I am outer";
+
+  function inner() {
+    console.log(outerVar); 
+  }
+
+  inner();
+}
+outer();
+// Nested scope variables can be accessed only within the inner function where they are declared.
+
+
+// Lexical Scope
+
+function outer (){
+  let x = 10;
+
+  return function inner() {
+    console.log(x); 
+  };
+}
+
+let myFunc = outer();
+myFunc();
+// Lexical scope variables can be accessed only within the inner function where they are declared.
+
+
+//  Function vs Block Scope
+
+function test() {
+  if (true) {
+    var a = 10;
+    let b = 20;
+  }
+  console.log(a); 
+}
+test();
+// var works even outside the block, let and const do not.
+
+
+// Re-declaration in same scope (let vs var)
+var a = 5;
+var a = 10;  
+
+let b = 5;
+// let b = 10;  // Error: Identifier 'b' has already been declared
+console.log(a);
+// var can be re-declared, let cannot.
+// var allows duplicate; let and const do not in same scope.
+
+
+// Scope in loops
+
+for ( let i = 0; i < 5; i++){
+  console.log(i);
+}
+
+
+
