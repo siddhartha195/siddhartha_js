@@ -55,7 +55,7 @@
 
   <button>Click Me</button>
 
-  <script>
+  <!-- <script>
     let namasteBtn = document.querySelector('button');
 
     namasteBtn.addEventListener('click', inputMsg);
@@ -73,7 +73,114 @@
 
 
     
-  </script>
+  </script> -->
 
+<!--  DOM is a programming interface that converts HTML and XML documents into an object structure.When the browser loads an HTML page, it converts it into a tree structure (DOM tree).The full form of DOM is: Document Object Model
+ In this, every HTML element is an object (node), which can be accessed and manipulated through JavaScript.
+
+
+Accessing the Document-->
+<script>
+console.log(document); //accessing html document
+</script> 
+
+
+<!-- Accessing the element by ID -->
+<p id="demo">Hello</p>
+
+<script>
+  let para = document.getElementById("demo");
+  console.log(para.innerText); // Hello
+</script>
+
+
+
+<!-- Accessing Element from Class-->
+
+<div class="box">Box 1</div>
+<div class="box">Box 2</div>
+
+<script>
+  let boxes = document.getElementsByClassName("box");
+  console.log(boxes[1].innerText); // Box 1
+</script>
+
+<!-- Accessing Elements by Tag Name -->
+
+<p>Para 1</p>
+<p>Para 2</p>
+<p>Para 3</p>
+<p>Para 4</p>
+
+<script>
+  let paras = document.getElementsByTagName("p");
+  console.log(paras.length); // 2
+</script>
+
+<!-- use of querySelector() -->
+
+<h1 class="title">Welcome</h1>
+
+<script>
+  let heading = document.querySelector(".title");
+  console.log(heading.innerText); // Welcome
+</script>
+
+<!-- Changing the content (innerText) -->
+
+<p id="changeText">Old Text</p>
+
+<script>
+  document.getElementById("changeText").innerText = "New Text";
+  
+</script>
+
+<!-- change html -->
+<div id="container"></div>
+
+<script>
+  document.getElementById("container").innerHTML = "<p>Hello World</p>";
+</script>
+
+<!-- Changing the style of an element -->
+ <h2 id="heading">Styled Heading</h2>
+<script>
+  let h = document.getElementById("heading");
+  h.style.color = "red";
+  h.style.fontSize=" 100px" ; 
+</script>
+
+<!--  Creating and Adding a New Element -->
+
+<ul id="list"></ul>
+
+<script>
+  let li = document.createElement("li");
+  li.innerText = "New Item";
+  document.getElementById("list").appendChild(li);
+</script>
+
+
+<!-- Updating the DOM on Button Click -->
+<button onclick="changeText()">Click Me</button>
+<p id="para">Before Click</p>
+
+<script>
+  function changeText() {
+    document.getElementById("para").innerText = "After Click";
+  }
+</script>
+
+<!-- Functions DOM                    Functions DOM 
+   Accessing by ID                 getElementById()
+   Accessing by Class              getElementsByClassName()
+   Accessing by Tag                getElementsByTagName() 
+   Accessing by CSS Selector       querySelector()
+   Changing text                    innerText     
+   changing html                    innerHTML  
+   Changing style                   	style  
+   Creating a new Element           createElement()
+   Add an Element                   appendChild()  -->
 </body>
 </html>
+
