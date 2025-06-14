@@ -1588,103 +1588,366 @@ const { log, info } = require("console");
 
 //  Global Scope
 
-let name = "Amit";
+// let name = "Amit";
 
-function greet() {
-  console.log(name);  // "Amit"
-}
-greet();
+// function greet() {
+//   console.log(name);  // "Amit"
+// }
+// greet();
 // Global scope variables can be accessed from anywhere in the code.
 
 
 // Function Scope
 
-function sayHello() {
-  let message = "Hello!";
-  console.log(message);
-}
+// function sayHello() {
+//   let message = "Hello!";
+//   console.log(message);
+// }
 
-sayHello();
+// sayHello();
 // Function scope variables can be accessed only within the function where they are declared.
 
 
 // Block Scope (let and const)
 
-{
-  let age = 25;
-  console.log(age); 
-}
+// {
+//   let age = 25;
+//   console.log(age); 
+// }
 // Block scope variables can be accessed only within the block where they are declared.
 
 
 // Var is function-scoped, not block-scoped
 
-{
-  var city = "Delhi";
-}
-console.log(city);
+// {
+//   var city = "Delhi";
+// }
+// console.log(city);
 // Var is function-scoped, not block-scoped. It can be accessed outside the block wher
 
 
 //  Nested Scope (Function inside Function)
 
-function outer() {
-  let outerVar = "I am outer";
+// function outer() {
+//   let outerVar = "I am outer";
 
-  function inner() {
-    console.log(outerVar); 
-  }
+//   function inner() {
+//     console.log(outerVar); 
+//   }
 
-  inner();
-}
-outer();
+//   inner();
+// }
+// outer();
 // Nested scope variables can be accessed only within the inner function where they are declared.
 
 
 // Lexical Scope
 
-function outer (){
-  let x = 10;
+// function outer (){
+//   let x = 10;
 
-  return function inner() {
-    console.log(x); 
-  };
-}
+//   return function inner() {
+//     console.log(x); 
+//   };
+// }
 
-let myFunc = outer();
-myFunc();
+// let myFunc = outer();
+// myFunc();
 // Lexical scope variables can be accessed only within the inner function where they are declared.
 
 
 //  Function vs Block Scope
 
-function test() {
-  if (true) {
-    var a = 10;
-    let b = 20;
-  }
-  console.log(a); 
-}
-test();
+// function test() {
+//   if (true) {
+//     var a = 10;
+//     let b = 20;
+//   }
+//   console.log(a); 
+// }
+// test();
 // var works even outside the block, let and const do not.
 
 
 // Re-declaration in same scope (let vs var)
-var a = 5;
-var a = 10;  
+// var a = 5;
+// var a = 10;  
 
-let b = 5;
+// let b = 5;
 // let b = 10;  // Error: Identifier 'b' has already been declared
-console.log(a);
+// console.log(a);
 // var can be re-declared, let cannot.
 // var allows duplicate; let and const do not in same scope.
 
 
 // Scope in loops
 
-for ( let i = 0; i < 5; i++){
-  console.log(i);
+// for ( let i = 0; i < 5; i++){
+//   console.log(i);
+// }
+
+
+
+
+//currying 
+
+// Currying is a technique in which a function is written in such a way that it takes only one argument at a time and returns a new function each time, which takes the next argument.This is a technique of Functional Programming.
+
+
+// Normal Function vs Currying Function
+
+// normal function
+// function sum (a,b,c) {
+//   return a + b + c;
+// }
+// console.log(sum(4, 5, 8));
+
+
+// currying function
+
+// function sum (a){
+//   return function(b){
+//     return function(c){
+//       return a + b + c;
+//     }
+//   }
+// }
+
+// console.log(sum(4)(5)(8)); 
+
+
+// Simple Addition
+
+// function add (a) {
+//   return function(b) {
+//     return a + b ;
+//   }
+// }
+// console.log(add(5)(48));
+
+
+// Multiplication
+
+function multiply (a){
+  return function (b){
+    return function(c){
+      return a * b * c ;
+    }
+  }
+}
+console.log(multiply(5)(8)(9));
+
+
+// Greeting Message
+
+function greet (greeting) {
+  return function(name) {
+    return greeting + ' ,' + name;
+}
+}
+
+console.log (greet("namaste")("rahul"));
+
+
+// String Join
+
+function join (separator) {
+  return function(strings1) {
+    return function(strings2) {
+      return strings1 + separator + strings2; 
+    }
+  }
+}
+console.log(join("-")("hello")("world"));
+
+
+// Area of Rectangle
+
+function area(length) {
+  return function(width) {
+    return length * width;
+  };
+}
+console.log(area(10)(5));
+
+
+// Power Function
+
+function power(base) {
+  return function(exp) {
+    return Math.pow(base, exp);
+  };
+}
+console.log(power(2)(3));
+
+
+// Logging Currying
+
+// function login (level) {
+//   return function(message) {
+//     console.log(`[${level.toUpperCase()}] ${message}`);
+//   };
+// }
+// const info = login("info");
+// info("Server started");
+
+
+// Tax Calculator
+
+function tax(rate) {
+  return function(amount) {
+    return amount + (amount * rate);
+  };
+}
+console.log(tax(0.18)(1000));
+
+
+// Personalized Message
+
+function message(firstName) {
+  return function(lastName) {
+    return function(age) {
+      return `Hello ${firstName} ${lastName}, age is ${age}`;
+    };
+  };
+}
+console.log(message("Sita")("Devi")(25));
+
+
+// Currying with Arrow Functions
+
+const sum = a => b => c => a + b + c;
+console.log(sum(1)(2)(3));
+
+
+
+
+// Error Handling in JavaScript
+
+// When there is an error in our code, JavaScript allows us to catch and handle that error so that the program does not crash and the user gets the correct message.
+
+// Methods of Error Handling in JavaScript:
+
+// try – In which we write code that can throw an error.
+
+// catch – To catch an error if it occurs.
+
+//finally – Will always run, whether an error occurs or not.
+
+// throw – To throw an error yourself.
+
+
+
+//  Basic try-catch
+
+try {
+  let a = b + 10;  
+} catch (error) {
+  console.log("Error aaya: " + error.message);
+}
+
+
+// Arithmetic Error
+
+try {
+  let result = 10 / 0;
+  console.log(result);
+} catch (err) {
+  console.log("Error: " + err.message);
+}
+
+
+// Type Error
+
+try {
+  null.f();
+} catch (e) {
+  console.log(" find error" + e.message);
+}
+
+
+// Custom Error using throw
+
+try {
+  let age = 15;
+  if (age < 18) {
+    throw "you are a minor";
+  }
+} catch (e) {
+  console.log("Custom Error: " + e);
+}
+
+
+// use of Error Object
+
+try {
+  throw new Error("something is wrong")
+}catch (e) {
+  console.log (e.name);
+  console.log(e.message);
+}
+
+
+// finally block
+
+try {
+  console.log("run try block");
+}catch (e) {
+  console.log("error find");
+} finally {
+  console.log("always run finaaly block");
+}
+
+
+// Error handling in function
+
+function divide (a,b) {
+  try {
+    if (b == 0) throw "cannot be divided by 0"
+    return a/b;
+  }catch (e) {
+    return e;
+  }
+}
+console.log(divide(10, 0))
+
+
+//  JSON Parse Error
+
+try {
+  let user = JSON.parse('{"name": "Amit"'); // गलत JSON
+} catch (e) {
+  console.log("JSON Parse Error: " + e.message);
 }
 
 
 
+// DOM Access Error
+
+try {
+  document.getElementById("myBtn").click();
+}catch (e) {
+  console.log("DOM ACCESS ERROR" + e.message);
+}
+
+
+
+// Multiple Custom Conditions
+
+function checkPassword(password) {
+  try {
+    if (password.length < 6) throw "Password is too short";
+    if (!/[A-Z]/.test(password)) throw "minimum one Capital Letter";
+    return "Right password";
+  } catch (e) {
+    return "Error: " + e;
+  }
+}
+console.log(checkPassword("abc"));
+
+
+// Keyword                        usage
+// try                         to safely execute code that has potential errors
+// catch                       to catch and deal with errors
+// throw                       to manually throw a custom error
+// finally                     finally is always executed – whether an error occurs or not
