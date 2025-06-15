@@ -2,6 +2,8 @@
 //  const mysym = Symbol("key1")
 
 const { log, info } = require("console");
+const { get } = require("http");
+const { resolve } = require("path");
 
 //         const JsUser = {
 //             name : "siddhartha",
@@ -1728,57 +1730,57 @@ const { log, info } = require("console");
 
 // Multiplication
 
-function multiply (a){
-  return function (b){
-    return function(c){
-      return a * b * c ;
-    }
-  }
-}
-console.log(multiply(5)(8)(9));
+// function multiply (a){
+//   return function (b){
+//     return function(c){
+//       return a * b * c ;
+//     }
+//   }
+// }
+// console.log(multiply(5)(8)(9));
 
 
 // Greeting Message
 
-function greet (greeting) {
-  return function(name) {
-    return greeting + ' ,' + name;
-}
-}
+// function greet (greeting) {
+//   return function(name) {
+//     return greeting + ' ,' + name;
+// }
+// }
 
-console.log (greet("namaste")("rahul"));
+// console.log (greet("namaste")("rahul"));
 
 
 // String Join
 
-function join (separator) {
-  return function(strings1) {
-    return function(strings2) {
-      return strings1 + separator + strings2; 
-    }
-  }
-}
-console.log(join("-")("hello")("world"));
+// function join (separator) {
+//   return function(strings1) {
+//     return function(strings2) {
+//       return strings1 + separator + strings2; 
+//     }
+//   }
+// }
+// console.log(join("-")("hello")("world"));
 
 
 // Area of Rectangle
 
-function area(length) {
-  return function(width) {
-    return length * width;
-  };
-}
-console.log(area(10)(5));
+// function area(length) {
+//   return function(width) {
+//     return length * width;
+//   };
+// }
+// console.log(area(10)(5));
 
 
 // Power Function
 
-function power(base) {
-  return function(exp) {
-    return Math.pow(base, exp);
-  };
-}
-console.log(power(2)(3));
+// function power(base) {
+//   return function(exp) {
+//     return Math.pow(base, exp);
+//   };
+// }
+// console.log(power(2)(3));
 
 
 // Logging Currying
@@ -1794,30 +1796,30 @@ console.log(power(2)(3));
 
 // Tax Calculator
 
-function tax(rate) {
-  return function(amount) {
-    return amount + (amount * rate);
-  };
-}
-console.log(tax(0.18)(1000));
+// function tax(rate) {
+//   return function(amount) {
+//     return amount + (amount * rate);
+//   };
+// }
+// console.log(tax(0.18)(1000));
 
 
 // Personalized Message
 
-function message(firstName) {
-  return function(lastName) {
-    return function(age) {
-      return `Hello ${firstName} ${lastName}, age is ${age}`;
-    };
-  };
-}
-console.log(message("Sita")("Devi")(25));
+// function message(firstName) {
+//   return function(lastName) {
+//     return function(age) {
+//       return `Hello ${firstName} ${lastName}, age is ${age}`;
+//     };
+//   };
+// }
+// console.log(message("Sita")("Devi")(25));
 
 
 // Currying with Arrow Functions
 
-const sum = a => b => c => a + b + c;
-console.log(sum(1)(2)(3));
+// const sum = a => b => c => a + b + c;
+// console.log(sum(1)(2)(3));
 
 
 
@@ -1840,114 +1842,504 @@ console.log(sum(1)(2)(3));
 
 //  Basic try-catch
 
-try {
-  let a = b + 10;  
-} catch (error) {
-  console.log("Error aaya: " + error.message);
-}
+// try {
+//   let a = b + 10;  
+// } catch (error) {
+//   console.log("Error aaya: " + error.message);
+// }
 
 
 // Arithmetic Error
 
-try {
-  let result = 10 / 0;
-  console.log(result);
-} catch (err) {
-  console.log("Error: " + err.message);
-}
+// try {
+//   let result = 10 / 0;
+//   console.log(result);
+// } catch (err) {
+//   console.log("Error: " + err.message);
+// }
 
 
 // Type Error
 
-try {
-  null.f();
-} catch (e) {
-  console.log(" find error" + e.message);
-}
+// try {
+//   null.f();
+// } catch (e) {
+//   console.log(" find error" + e.message);
+// }
 
 
 // Custom Error using throw
 
-try {
-  let age = 15;
-  if (age < 18) {
-    throw "you are a minor";
-  }
-} catch (e) {
-  console.log("Custom Error: " + e);
-}
+// try {
+//   let age = 15;
+//   if (age < 18) {
+//     throw "you are a minor";
+//   }
+// } catch (e) {
+//   console.log("Custom Error: " + e);
+// }
 
 
 // use of Error Object
 
-try {
-  throw new Error("something is wrong")
-}catch (e) {
-  console.log (e.name);
-  console.log(e.message);
-}
+// try {
+//   throw new Error("something is wrong")
+// }catch (e) {
+//   console.log (e.name);
+//   console.log(e.message);
+// }
 
 
 // finally block
 
-try {
-  console.log("run try block");
-}catch (e) {
-  console.log("error find");
-} finally {
-  console.log("always run finaaly block");
-}
+// try {
+//   console.log("run try block");
+// }catch (e) {
+//   console.log("error find");
+// } finally {
+//   console.log("always run finaaly block");
+// }
 
 
 // Error handling in function
 
-function divide (a,b) {
-  try {
-    if (b == 0) throw "cannot be divided by 0"
-    return a/b;
-  }catch (e) {
-    return e;
-  }
-}
-console.log(divide(10, 0))
+// function divide (a,b) {
+//   try {
+//     if (b == 0) throw "cannot be divided by 0"
+//     return a/b;
+//   }catch (e) {
+//     return e;
+//   }
+// }
+// console.log(divide(10, 0))
 
 
 //  JSON Parse Error
 
-try {
-  let user = JSON.parse('{"name": "Amit"'); // गलत JSON
-} catch (e) {
-  console.log("JSON Parse Error: " + e.message);
-}
+// try {
+//   let user = JSON.parse('{"name": "Amit"'); // गलत JSON
+// } catch (e) {
+//   console.log("JSON Parse Error: " + e.message);
+// }
 
 
 
 // DOM Access Error
 
-try {
-  document.getElementById("myBtn").click();
-}catch (e) {
-  console.log("DOM ACCESS ERROR" + e.message);
-}
+// try {
+//   document.getElementById("myBtn").click();
+// }catch (e) {
+//   console.log("DOM ACCESS ERROR" + e.message);
+// }
 
 
 
 // Multiple Custom Conditions
 
-function checkPassword(password) {
-  try {
-    if (password.length < 6) throw "Password is too short";
-    if (!/[A-Z]/.test(password)) throw "minimum one Capital Letter";
-    return "Right password";
-  } catch (e) {
-    return "Error: " + e;
-  }
-}
-console.log(checkPassword("abc"));
+// function checkPassword(password) {
+//   try {
+//     if (password.length < 6) throw "Password is too short";
+//     if (!/[A-Z]/.test(password)) throw "minimum one Capital Letter";
+//     return "Right password";
+//   } catch (e) {
+//     return "Error: " + e;
+//   }
+// }
+// console.log(checkPassword("abc"));
 
 
-// Keyword                        usage
+// Keyword                           usage
 // try                         to safely execute code that has potential errors
 // catch                       to catch and deal with errors
 // throw                       to manually throw a custom error
 // finally                     finally is always executed – whether an error occurs or not
+
+
+
+
+
+// Asynchrouns javascript
+// When there is some work that takes time to complete (eg: fetching data from the server, reading a file, or a timer), it is done asynchronously so that the rest of the code does not stop.
+
+// There are 3 ways to do asynchronous work in JavaScript:
+
+// Callbacks
+
+// Promises
+
+// Async / Await
+
+
+// SetTimeout
+
+console.log ("1 - start");
+setTimeout(() => {
+  console.log("2 - second later");
+}, 2000);
+console.log ("3 - end");
+
+
+// callback function
+
+// function greet(greeting) {
+//   return function(name) {
+//     return greeting + " " + name;
+//   };
+// }
+
+// console.log( greet("Namaste")("Rahul") );  
+
+
+//  Callback Hell (Nested Callbacks)
+
+setTimeout(() => {
+  console.log("step1");
+  setTimeout(() =>{
+    console.log("step2");
+    setTimeout(() => {
+      console.log("step3");
+    }, 1000);
+  }, 1000);
+}, 1000);
+
+
+//  Promise – Asynchronous
+
+let mypromise = new Promise((resolve, reject) => {
+  let success = true;
+  if(success) resolve ("work finish");
+  else reject ("work failed");
+});
+mypromise.then(result => console.log(result)).catch(err => console.log(err));
+
+
+// Fetch API (Fetching Data from Server - Asynchronous)
+// fetch('https://jsonplaceholder.typicode.com/posts')
+// .then(Response => Response.json())
+// .then(data => console.log(data));
+
+
+// Async / Await – making Promises easier
+
+// async function getData() {
+//   let responce = await fetch ('https://jsonplaceholder.typicode.com/posts/55');
+//   let data = await responce.json();
+//   console.log(data);
+// }
+// getData();
+
+
+
+// Error Handling in Async Function
+
+async function fetchData() {
+  try {
+    let response = await fetch('https://example.com/data'); 
+    if (!response.ok) {
+      throw new Error("HTTP error! Status: " + response.status);
+    }
+
+    const contentType = response.headers.get("content-type");
+    if (!contentType || !contentType.includes("application/json")) {
+      throw new Error("Invalid content type: " + contentType);
+    }
+
+    let data = await response.json();
+    console.log(" JSON data :", data);
+  } catch (error) {
+    console.error(" Error :", error.message);
+  }
+}
+fetchData();
+
+
+// Promise.all – running multiple Promises simultaneously
+
+let p1 = Promise.resolve(10);
+let p2 = Promise.resolve(20);
+
+Promise.all([p1, p2]).then(values => console.log(values));
+
+
+
+// Chaining Promises
+
+let promise = new Promise((resolve) => {
+  setTimeout(() => resolve(5), 1000);
+});
+
+promise
+  .then((num) => {
+    console.log("first number:", num);
+    return num * 2;
+  })
+  .then((result) => {
+    console.log("doubal:", result);
+  });
+
+
+
+// Closure
+
+// Closure is a function that remembers the variables of its outer scope, even if that scope is over.
+
+// "Closure = Function + its surrounding lexical environment"
+// When an inner function accesses the variables of its outer function, it is called closure.
+// Closure is a function that has access to its outer function's scope, even when the outer function
+
+// Basic Closure
+function outer() {
+  let name = "Siddhartha1";
+  function inner() {
+    console.log(name); // Accessing outer variable
+  }
+  return inner;
+}
+
+let greet = outer();
+greet();
+
+
+// Counter Function
+
+function counter() {
+  let count = 0;
+  return function () {
+    count++;
+    console.log(count);
+  }
+}
+
+let inc = counter();
+inc(); 
+inc();
+
+
+
+//  Private Variables with Closures
+
+function secretBox() {
+  let secret = "hidden value";
+  return {
+    getSecret: function() {
+      return secret;
+    },
+    setSecret: function(newVal) {
+      secret = newVal;
+    }
+  }
+}
+
+let box = secretBox();
+console.log(box.getSecret());
+box.setSecret("new secret");
+console.log(box.getSecret()); 
+
+
+// Function Factory
+
+function multiplyBy(x) {
+  return function(y) {
+    return x * y;
+  };
+}
+
+let double = multiplyBy(2);
+console.log(double(5));
+
+
+// Loop with Closure Problem (var)
+
+for (var i = 1; i <= 3; i++) {
+  setTimeout(function () {
+    console.log(i); 
+  }, 1000);
+}
+
+
+//  Loop with Closure Fix (let )
+
+for (let i = 1; i <= 3; i++) {
+  setTimeout(function () {
+    console.log(i); 
+  }, 1000);
+}
+
+
+// Closure inside IIFE (Immediately Invoked Function Expression)
+
+let result = (function () {
+  let score = 100;
+  return function () {
+    return score;
+  };
+})();
+
+console.log(result()); 
+
+
+// Nested Closures
+
+function a() {
+  let valA = "A";
+  function b() {
+    let valB = "B";
+    function c() {
+      console.log(valA + valB);
+    }
+    return c;
+  }
+  return b();
+}
+
+let final = a();
+final(); 
+
+
+// Function with State
+
+function likeButton() {
+  let likes = 0;
+  return function () {
+    likes++;
+    console.log("❤️ Likes: " + likes);
+  };
+}
+
+let like = likeButton();
+like(); 
+like(); 
+
+
+// Real Life Example - Timer
+
+function createTimer() {
+  let time = 0;
+  return function () {
+    time += 1;
+    return time + " second";
+  }
+}
+
+let timer = createTimer();
+console.log(timer()); 
+console.log(timer());
+
+
+// Benefits of closure:
+// Data encapsulation (private variables)
+// Memory efficient functions
+// Easy to create factory functions
+// Real-world use cases: timers, event handlers, React hooks, etc.
+
+// Closures are created when:
+// There is a function inside a function/
+// The inner function is using the outer variable
+// It is returned or passed outside the inner function
+
+
+
+// Micro task and macrotask queue 
+
+// Queue	                                Example	                                                  Priority
+// Microtask Queue	       Promise.then, MutationObserver, queueMicrotask     	                 higher priority
+// Macrotask Queue	       setTimeout, setInterval, setImmediate, DOM Events	                   low priority
+
+// The Event Loop executes Microtasks first, then Macrotasks.
+
+
+//  setTimeout (Macrotask)
+
+console.log("A");
+
+setTimeout(() => {
+  console.log("B");
+}, 0);
+
+console.log("C");
+
+
+// Promise.then (Microtask)
+
+console.log("A");
+
+Promise.resolve().then(() => {
+  console.log("B");
+});
+
+console.log("C");
+
+
+// Microtask and Macrotask together
+
+setTimeout(() => console.log("Macrotask"), 0);
+
+Promise.resolve().then(() => console.log("Microtask"));
+
+
+// Multiple Microtasks
+
+Promise.resolve().then(() => console.log("Microtask 1"));
+Promise.resolve().then(() => console.log("Microtask 2"));
+
+
+// Nested Promise (Microtask inside Microtask)
+
+Promise.resolve().then(() => {
+  console.log("First");
+  return Promise.resolve();
+}).then(() => {
+  console.log("Second");
+});
+
+
+// setTimeout + Promise Inside (Microtask inside Macrotask)
+
+setTimeout(() => {
+  console.log("Timer");
+  Promise.resolve().then(() => console.log("Promise inside setTimeout"));
+}, 0);
+
+
+//async/await = Microtask
+
+async function test() {
+  console.log("1");
+  await null;
+  console.log("2");
+}
+
+test();
+console.log("3");
+
+
+// queueMicrotask (Manual Microtask)
+
+queueMicrotask(() => console.log("Microtask via queueMicrotask"));
+console.log("Main thread");
+
+
+// Multiple Macrotasks with Delays
+
+setTimeout(() => console.log("1s delay"), 1000);
+setTimeout(() => console.log("0s delay"), 0);
+
+
+//  Mixing all together
+
+console.log("Start");
+
+setTimeout(() => console.log("setTimeout"), 0);
+
+Promise.resolve().then(() => console.log("Promise 1"));
+
+queueMicrotask(() => console.log("Microtask 1"));
+
+Promise.resolve().then(() => console.log("Promise 2"));
+
+console.log("End");
+
+
+
+// Conclusion
+// Microtasks are always executed first, even if the macrotask is scheduled first.
