@@ -181,6 +181,18 @@ console.log(document); //accessing html document
    Changing style                   	style  
    Creating a new Element           createElement()
    Add an Element                   appendChild()  -->
+
+
+   <!-- Real-life Asynchronous Event – Button Click -->
+<script>
+  document.querySelector("button").addEventListener("click", async () => {
+  let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+  let todo = await response.json();
+  console.log("find todo:", todo);
+});
+</script>
+
 </body>
+
 </html>
 
