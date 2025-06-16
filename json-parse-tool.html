@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Advanced JSON Parser & Stringifier</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f6f8;
+      padding: 20px;
+      color: #333;
+    }
+
+    textarea {
+      width: 100%;
+      font-family: monospace;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      resize: vertical;
+    }
+
+    button {
+      margin-right: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      background-color: #007bff;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .output {
+      background-color: #e9f7ef;
+      border-left: 5px solid #28a745;
+      padding: 10px;
+      margin-top: 20px;
+      white-space: pre-wrap;
+      font-family: monospace;
+    }
+
+    .error {
+      background-color: #fbe9e7;
+      border-left: 5px solid #e53935;
+      color: #c62828;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Advanced JSON Tool</h2>
+
+  <h4>🔹 Enter JSON String (for parse)</h4>
+  <textarea id="jsonInput" rows="8" placeholder='{"name": "Siddhartha", "age": 25}'></textarea>
+  <button onclick="parseJSON()">🔍 Parse</button>
+
+  <h4>🔹 Enter JavaScript Object Code (for stringify)</h4>
+  <textarea id="objectInput" rows="6" placeholder='{"course": "JavaScript", "level": "beginner"}'></textarea>
+  <button onclick="stringifyJS()">📦 Stringify</button>
+
+  <div id="output" class="output"></div>
+
+  <script>
+    function parseJSON() {
+      const input = document.getElementById("jsonInput").value;
+      const output = document.getElementById("output");
+      try {
+        const obj = JSON.parse(input);
+        output.className = "output";
+        output.innerText = "Parsed Object:\n" + JSON.stringify(obj, null, 2);
+      } catch (err) {
+        output.className = "output error";
+        output.innerText = "Error: " + err.message;
+      }
+    }
+
+    function stringifyJS() {
+      const input = document.getElementById("objectInput").value;
+      const output = document.getElementById("output");
+      try {
+        const obj = eval("(" + input + ")");
+        const json = JSON.stringify(obj, null, 2);
+        output.className = "output";
+        output.innerText = "JSON String:\n" + json;
+      } catch (err) {
+        output.className = "output error";
+        output.innerText = "Error: " + err.message;
+      }
+    }
+  </script>
+
+</body>
+</html>

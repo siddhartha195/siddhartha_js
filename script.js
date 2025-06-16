@@ -847,7 +847,7 @@ const { resolve } = require("path");
 // checkAge(15).then(console.log).catch(console.error);
 
 
-
+// destructuring //
 // destructuring is a feature of a js which helps to find out the values from array/objects to direct assign in the variables.
 // it is a shorthand way to assign values from array/objects to variables.
 // it is a way to unpack values from arrays or objects into distinct variables.
@@ -1106,7 +1106,7 @@ const { resolve } = require("path");
 
 
 
-//Object Methods
+//Object Methods //
 
 //structure of object method
 // let person = {
@@ -1250,7 +1250,7 @@ const { resolve } = require("path");
 
 
 
-// Garbage Collection 
+// Garbage Collection //
 
 // Unused Variable Automatically Removed
 
@@ -1364,7 +1364,7 @@ const { resolve } = require("path");
 
 
 
-// memory heap
+// memory heap //
 
 // In JavaScript, whenever you create a variable, object, array or function, memory is allocated for it.
 // JavaScript divides this memory into two parts:
@@ -1470,7 +1470,7 @@ const { resolve } = require("path");
 
 
 
-// JSON.stringify
+// JSON.stringify //
 
 
 // JSON.stringify() is a method that converts a JavaScript object into a JSON string.
@@ -1575,7 +1575,7 @@ const { resolve } = require("path");
 
 
 
-// scope
+// scope //
 
 //Scope means – from where a variable or function can be accessed.In JavaScript, scope decides which variable can be seen or changed from where.
 
@@ -1691,7 +1691,7 @@ const { resolve } = require("path");
 
 
 
-//currying 
+//currying //
 
 // Currying is a technique in which a function is written in such a way that it takes only one argument at a time and returns a new function each time, which takes the next argument.This is a technique of Functional Programming.
 
@@ -1958,7 +1958,7 @@ const { resolve } = require("path");
 
 
 
-// Asynchrouns javascript
+// Asynchrouns javascript //
 // When there is some work that takes time to complete (eg: fetching data from the server, reading a file, or a timer), it is done asynchronously so that the rest of the code does not stop.
 
 // There are 3 ways to do asynchronous work in JavaScript:
@@ -1972,11 +1972,11 @@ const { resolve } = require("path");
 
 // SetTimeout
 
-console.log ("1 - start");
-setTimeout(() => {
-  console.log("2 - second later");
-}, 2000);
-console.log ("3 - end");
+// console.log ("1 - start");
+// setTimeout(() => {
+//   console.log("2 - second later");
+// }, 2000);
+// console.log ("3 - end");
 
 
 // callback function
@@ -1992,25 +1992,25 @@ console.log ("3 - end");
 
 //  Callback Hell (Nested Callbacks)
 
-setTimeout(() => {
-  console.log("step1");
-  setTimeout(() =>{
-    console.log("step2");
-    setTimeout(() => {
-      console.log("step3");
-    }, 1000);
-  }, 1000);
-}, 1000);
+// setTimeout(() => {
+//   console.log("step1");
+//   setTimeout(() =>{
+//     console.log("step2");
+//     setTimeout(() => {
+//       console.log("step3");
+//     }, 1000);
+//   }, 1000);
+// }, 1000);
 
 
 //  Promise – Asynchronous
 
-let mypromise = new Promise((resolve, reject) => {
-  let success = true;
-  if(success) resolve ("work finish");
-  else reject ("work failed");
-});
-mypromise.then(result => console.log(result)).catch(err => console.log(err));
+// let mypromise = new Promise((resolve, reject) => {
+//   let success = true;
+//   if(success) resolve ("work finish");
+//   else reject ("work failed");
+// });
+// mypromise.then(result => console.log(result)).catch(err => console.log(err));
 
 
 // Fetch API (Fetching Data from Server - Asynchronous)
@@ -2032,54 +2032,54 @@ mypromise.then(result => console.log(result)).catch(err => console.log(err));
 
 // Error Handling in Async Function
 
-async function fetchData() {
-  try {
-    let response = await fetch('https://example.com/data'); 
-    if (!response.ok) {
-      throw new Error("HTTP error! Status: " + response.status);
-    }
+// async function fetchData() {
+//   try {
+//     let response = await fetch('https://example.com/data'); 
+//     if (!response.ok) {
+//       throw new Error("HTTP error! Status: " + response.status);
+//     }
 
-    const contentType = response.headers.get("content-type");
-    if (!contentType || !contentType.includes("application/json")) {
-      throw new Error("Invalid content type: " + contentType);
-    }
+//     const contentType = response.headers.get("content-type");
+//     if (!contentType || !contentType.includes("application/json")) {
+//       throw new Error("Invalid content type: " + contentType);
+//     }
 
-    let data = await response.json();
-    console.log(" JSON data :", data);
-  } catch (error) {
-    console.error(" Error :", error.message);
-  }
-}
-fetchData();
+//     let data = await response.json();
+//     console.log(" JSON data :", data);
+//   } catch (error) {
+//     console.error(" Error :", error.message);
+//   }
+// }
+// fetchData();
 
 
 // Promise.all – running multiple Promises simultaneously
 
-let p1 = Promise.resolve(10);
-let p2 = Promise.resolve(20);
+// let p1 = Promise.resolve(10);
+// let p2 = Promise.resolve(20);
 
-Promise.all([p1, p2]).then(values => console.log(values));
+// Promise.all([p1, p2]).then(values => console.log(values));
 
 
 
 // Chaining Promises
 
-let promise = new Promise((resolve) => {
-  setTimeout(() => resolve(5), 1000);
-});
+// let promise = new Promise((resolve) => {
+//   setTimeout(() => resolve(5), 1000);
+// });
 
-promise
-  .then((num) => {
-    console.log("first number:", num);
-    return num * 2;
-  })
-  .then((result) => {
-    console.log("doubal:", result);
-  });
+// promise
+//   .then((num) => {
+//     console.log("first number:", num);
+//     return num * 2;
+//   })
+//   .then((result) => {
+//     console.log("doubal:", result);
+//   });
 
 
 
-// Closure
+// Closure //
 
 // Closure is a function that remembers the variables of its outer scope, even if that scope is over.
 
@@ -2088,142 +2088,142 @@ promise
 // Closure is a function that has access to its outer function's scope, even when the outer function
 
 // Basic Closure
-function outer() {
-  let name = "Siddhartha1";
-  function inner() {
-    console.log(name); // Accessing outer variable
-  }
-  return inner;
-}
+// function outer() {
+//   let name = "Siddhartha1";
+//   function inner() {
+//     console.log(name); // Accessing outer variable
+//   }
+//   return inner;
+// }
 
-let greet = outer();
-greet();
+// let greet = outer();
+// greet();
 
 
 // Counter Function
 
-function counter() {
-  let count = 0;
-  return function () {
-    count++;
-    console.log(count);
-  }
-}
+// function counter() {
+//   let count = 0;
+//   return function () {
+//     count++;
+//     console.log(count);
+//   }
+// }
 
-let inc = counter();
-inc(); 
-inc();
+// let inc = counter();
+// inc(); 
+// inc();
 
 
 
 //  Private Variables with Closures
 
-function secretBox() {
-  let secret = "hidden value";
-  return {
-    getSecret: function() {
-      return secret;
-    },
-    setSecret: function(newVal) {
-      secret = newVal;
-    }
-  }
-}
+// function secretBox() {
+//   let secret = "hidden value";
+//   return {
+//     getSecret: function() {
+//       return secret;
+//     },
+//     setSecret: function(newVal) {
+//       secret = newVal;
+//     }
+//   }
+// }
 
-let box = secretBox();
-console.log(box.getSecret());
-box.setSecret("new secret");
-console.log(box.getSecret()); 
+// let box = secretBox();
+// console.log(box.getSecret());
+// box.setSecret("new secret");
+// console.log(box.getSecret()); 
 
 
 // Function Factory
 
-function multiplyBy(x) {
-  return function(y) {
-    return x * y;
-  };
-}
+// function multiplyBy(x) {
+//   return function(y) {
+//     return x * y;
+//   };
+// }
 
-let double = multiplyBy(2);
-console.log(double(5));
+// let double = multiplyBy(2);
+// console.log(double(5));
 
 
 // Loop with Closure Problem (var)
 
-for (var i = 1; i <= 3; i++) {
-  setTimeout(function () {
-    console.log(i); 
-  }, 1000);
-}
+// for (var i = 1; i <= 3; i++) {
+//   setTimeout(function () {
+//     console.log(i); 
+//   }, 1000);
+// }
 
 
 //  Loop with Closure Fix (let )
 
-for (let i = 1; i <= 3; i++) {
-  setTimeout(function () {
-    console.log(i); 
-  }, 1000);
-}
+// for (let i = 1; i <= 3; i++) {
+//   setTimeout(function () {
+//     console.log(i); 
+//   }, 1000);
+// }
 
 
 // Closure inside IIFE (Immediately Invoked Function Expression)
 
-let result = (function () {
-  let score = 100;
-  return function () {
-    return score;
-  };
-})();
+// let result = (function () {
+//   let score = 100;
+//   return function () {
+//     return score;
+//   };
+// })();
 
-console.log(result()); 
+// console.log(result()); 
 
 
-// Nested Closures
+// Nested Closures 
 
-function a() {
-  let valA = "A";
-  function b() {
-    let valB = "B";
-    function c() {
-      console.log(valA + valB);
-    }
-    return c;
-  }
-  return b();
-}
+// function a() {
+//   let valA = "A";
+//   function b() {
+//     let valB = "B";
+//     function c() {
+//       console.log(valA + valB);
+//     }
+//     return c;
+//   }
+//   return b();
+// }
 
-let final = a();
-final(); 
+// let final = a();
+// final(); 
 
 
 // Function with State
 
-function likeButton() {
-  let likes = 0;
-  return function () {
-    likes++;
-    console.log("❤️ Likes: " + likes);
-  };
-}
+// function likeButton() {
+//   let likes = 0;
+//   return function () {
+//     likes++;
+//     console.log("❤️ Likes: " + likes);
+//   };
+// }
 
-let like = likeButton();
-like(); 
-like(); 
+// let like = likeButton();
+// like(); 
+// like(); 
 
 
 // Real Life Example - Timer
 
-function createTimer() {
-  let time = 0;
-  return function () {
-    time += 1;
-    return time + " second";
-  }
-}
+// function createTimer() {
+//   let time = 0;
+//   return function () {
+//     time += 1;
+//     return time + " second";
+//   }
+// }
 
-let timer = createTimer();
-console.log(timer()); 
-console.log(timer());
+// let timer = createTimer();
+// console.log(timer()); 
+// console.log(timer());
 
 
 // Benefits of closure:
@@ -2250,96 +2250,423 @@ console.log(timer());
 
 //  setTimeout (Macrotask)
 
-console.log("A");
+// console.log("A");
 
-setTimeout(() => {
-  console.log("B");
-}, 0);
+// setTimeout(() => {
+//   console.log("B");
+// }, 0);
 
-console.log("C");
+// console.log("C");
 
 
 // Promise.then (Microtask)
 
-console.log("A");
+// console.log("A");
 
-Promise.resolve().then(() => {
-  console.log("B");
-});
+// Promise.resolve().then(() => {
+//   console.log("B");
+// });
 
-console.log("C");
+// console.log("C");
 
 
 // Microtask and Macrotask together
 
-setTimeout(() => console.log("Macrotask"), 0);
+// setTimeout(() => console.log("Macrotask"), 0);
 
-Promise.resolve().then(() => console.log("Microtask"));
+// Promise.resolve().then(() => console.log("Microtask"));
 
 
 // Multiple Microtasks
 
-Promise.resolve().then(() => console.log("Microtask 1"));
-Promise.resolve().then(() => console.log("Microtask 2"));
+// Promise.resolve().then(() => console.log("Microtask 1"));
+// Promise.resolve().then(() => console.log("Microtask 2"));
 
 
 // Nested Promise (Microtask inside Microtask)
 
-Promise.resolve().then(() => {
-  console.log("First");
-  return Promise.resolve();
-}).then(() => {
-  console.log("Second");
-});
+// Promise.resolve().then(() => {
+//   console.log("First");
+//   return Promise.resolve();
+// }).then(() => {
+//   console.log("Second");
+// });
 
 
 // setTimeout + Promise Inside (Microtask inside Macrotask)
 
-setTimeout(() => {
-  console.log("Timer");
-  Promise.resolve().then(() => console.log("Promise inside setTimeout"));
-}, 0);
+// setTimeout(() => {
+//   console.log("Timer");
+//   Promise.resolve().then(() => console.log("Promise inside setTimeout"));
+// }, 0);
 
 
 //async/await = Microtask
 
-async function test() {
-  console.log("1");
-  await null;
-  console.log("2");
-}
+// async function test() {
+//   console.log("1");
+//   await null;
+//   console.log("2");
+// }
 
-test();
-console.log("3");
+// test();
+// console.log("3");
 
 
 // queueMicrotask (Manual Microtask)
 
-queueMicrotask(() => console.log("Microtask via queueMicrotask"));
-console.log("Main thread");
+// queueMicrotask(() => console.log("Microtask via queueMicrotask"));
+// console.log("Main thread");
 
 
 // Multiple Macrotasks with Delays
 
-setTimeout(() => console.log("1s delay"), 1000);
-setTimeout(() => console.log("0s delay"), 0);
+// setTimeout(() => console.log("1s delay"), 1000);
+// setTimeout(() => console.log("0s delay"), 0);
 
 
 //  Mixing all together
 
-console.log("Start");
+// console.log("Start");
 
-setTimeout(() => console.log("setTimeout"), 0);
+// setTimeout(() => console.log("setTimeout"), 0);
 
-Promise.resolve().then(() => console.log("Promise 1"));
+// Promise.resolve().then(() => console.log("Promise 1"));
 
-queueMicrotask(() => console.log("Microtask 1"));
+// queueMicrotask(() => console.log("Microtask 1"));
 
-Promise.resolve().then(() => console.log("Promise 2"));
+// Promise.resolve().then(() => console.log("Promise 2"));
 
-console.log("End");
+// console.log("End");
 
 
 
 // Conclusion
 // Microtasks are always executed first, even if the macrotask is scheduled first.
+
+
+
+//Execution context //
+// Whenever a code runs in JavaScript, an Execution Context is created for it.Execution Context is the environment in which JavaScript code runs.
+// It is created in three phases:
+// Creation Phase
+// Execution Phase
+// Code Execution / Run Phase
+
+// Types of Execution Context:
+// Global Execution Context (GEC) – When the code is first loaded.
+// Function Execution Context (FEC) – When a function is called.
+// Eval Execution Context – For eval() function (rarely used).
+
+
+// Simple Global Execution Context
+
+// let a = 10;
+// console.log(a);
+
+
+// Function Execution Context
+
+// function greet() {
+//   console.log("Hello");
+// }
+// greet();
+// greet() is called inside the GEC, which will create the FEC.
+
+
+
+// Nested Function Execution Context
+
+function outer() {
+  console.log("Outer");
+  function inner() {
+    console.log("Inner");
+  }
+  inner();
+}
+outer();
+// First GEC, then FEC for outer(), and then a new FEC for inner().First GEC, then FEC for outer(), and then a new FEC for inner().
+
+
+// Execution with Lexical Scope
+
+let x = 5;
+function show() {
+  console.log(x);
+}
+show();
+// The reference to x is taken from the Lexical Environment, which is in the Execution Context.
+
+
+// Multiple Function Calls
+
+function one() {
+  console.log("one");
+}
+function two() {
+  one();
+  console.log("two");
+}
+two();
+// GEC → FEC of two() → FEC of one() → then return (pop).
+
+
+// Variable Hoisting in Creation Phase
+
+// console.log(a);
+// var a = 10;
+// In the Creation Phase, a is initialized to undefined.
+
+
+// Function Hoisting
+
+sayHello();
+function sayHello() {
+  console.log("hyy");
+}
+// In creation phase the whole function is loaded into memory so it is possible to call it first.
+
+
+// Execution Stack
+
+// function a() {
+//   b();
+// }
+// function b() {
+//   console.log("Inside B");
+// }
+// a();
+
+
+// Anonymous Function Expression
+
+let sum = function(x, y) {
+  return x + y;
+}
+console.log(sum(2, 3));
+// A new Function Execution Context will be created upon call of sum() .
+
+
+//Arrow Function Execution Context
+
+const greet = () => {
+  console.log("arrow function");
+}
+greet();
+// Arrow function भी एक FEC बनाता है, लेकिन इसका this लेक्सिकली bind होता है।
+
+
+// The Execution Context in JavaScript is where the code runs.
+
+// A new Execution Context is created on every function call.
+
+// The Execution Context acts like a stack — called the Call Stack.
+
+
+
+// Type Coercion //
+
+// JavaScript is a loosely typed or dynamically typed language. This means that a single variable can take multiple data types.
+
+// Type Coercion is the process in which JavaScript automatically converts one data type to another.
+
+// Type Coercion is of two types:
+
+// Implicit Coercion – JS converts the type automatically.
+
+// Explicit Coercion – We manually convert the type (from String(), Number() etc.).
+
+
+//  Implicit Type Coercion
+
+// String + Number
+
+// let result = "5" + 2;
+// console.log(result);
+// "5" is a string, and the + operator prefers strings. 2 is also made a string.
+
+// String - Number
+
+// let result = "8" - 5;
+// console.log(result);
+// The - operator only works on numbers, so "5" is converted to a number.
+
+
+// Boolean + Number
+
+// let result = true + 1;
+// console.log(result);
+// true is considered as 1 and false is considered as 0.
+
+
+// null + number
+
+// let result = null + 5;
+// console.log(result);
+// numm = 0
+
+// undifined + number
+
+// let result = undefined + 5;
+// console.log(result);
+// numm = NaN (Not a Number)
+
+//  '5' * '2'
+
+// let result = '5' * '2';
+// console.log(result);
+
+
+// divide
+// let result = '5' / '2';
+// console.log(result); 
+
+
+// Explicit Type Coercion //
+
+// String to Number
+// let str = "123";
+// let num = Number(str);
+// console.log(num); 
+// Convert "123" to a number using Number().
+
+
+//  Number to String
+
+// let num = 456;
+// let str = String(num);
+// console.log(str);
+// Convert 456 to a string using String().
+
+// Boolean to Number
+
+// console.log(number(true));
+// console.log(number(false));
+//true and false are forcibly converted to numbers
+
+
+// Expression	              Description	                      Result	               Type
+// "5" + 1	              String + Number	                     "51"	                String
+// "5" - 1	              String - Number	                       4	                 Number
+// true + 1	              Boolean + Number	                      2	                 Number
+// false + "hi"	          Boolean + String	                 "falsehi"	             String
+// null + 1	              null is coerced to 0	                  1 	               Number
+// undefined + 1	        undefined becomes NaN	                 NaN	               Number
+// "10" * "2"	          Both strings are coerced to numbers	      20	               Number
+// Number("123")	          Explicit coercion	                    123	               Number
+// String(456)	           Explicit coercion	                   "456"	             String
+// Boolean(0)	              0 is falsy	                         false	             Boolean
+
+
+           // Expression
+  //               |
+  //         -----------------
+  //        |                 |
+  //    Operator '+'       Other Operators (-, *, /)
+  //        |                   |
+  //  One Operand is String?    Try to convert both operands to Number
+  //        |                          |
+  //     Yes                         Coerce to Number
+  //        |
+  //  Coerce other to String
+  //        |
+  //    Concatenate
+
+
+// In + operator, if any value is string then it converts the rest to string.
+// In arithmetic operations like -, *, /, all values ​​are converted to number.
+// Boolean values: true → 1, false → 0
+// null → 0, undefined → NaN  
+
+
+
+//  JSON.parse() //
+
+// JSON.parse() is a JavaScript method used to convert a JSON string into a JavaScript object.
+// Meaning: We can parse the data in JSON format (as text) and convert it into a usable JavaScript object.
+// JSON.parse() is the opposite of JSON.stringify() which converts a JavaScript object into a JSON string
+
+
+//  Simple JSON to Object
+
+let jsonString = '{"name": "aman" , "age": 25}';
+let obj = JSON.parse(jsonString);
+console.log(obj.name);
+console.log(obj.age);
+
+
+//  JSON Array Parsing
+
+let jsonstr = '[ "red", "green", "blue"]';
+let colors = JSON.parse(jsonstr);
+console.log(colors[2]);
+
+
+// Nested Object
+
+let jsonstr = '{"user":{"name": "ravi", "role": "admin"}}';
+let data = JSON.parse(jsonstr);
+console.log(data.user.role);
+
+
+// Parsing Number
+
+let jsonStr = '123';
+let num = JSON.parse(jsonStr);
+console.log(num + 10);  
+
+
+// Parsing Boolean
+
+let jsonStr = 'true';
+let bool = JSON.parse(jsonStr);
+console.log(bool); 
+
+
+// Parsing null
+
+let jsonStr = 'null';
+let val = JSON.parse(jsonStr);
+console.log(val);  
+
+
+// Using reviver function
+
+let jsonStr = '{"name": "Neha", "age": 30}';
+let obj = JSON.parse(jsonStr, (key, value) => {
+  if (key === "age") return value + 5;
+  return value;
+});
+console.log(obj.age);
+console.log(obj.name);
+
+
+// Invalid JSON (Single Quotes)
+
+let jsonStr = "{'name': 'Amit'}"; 
+let obj = JSON.parse(jsonStr);   //wrong format 
+// only double quotes are valid for JSON
+
+
+// Parsing the Date String
+
+let jsonStr = '{"date": "2025-06-16T12:00:00Z"}';
+let obj = JSON.parse(jsonStr);
+console.log(new Date(obj.date)); 
+
+
+// From localStorage (Browser Example)
+localStorage.setItem("user", '{"name": "Sonu", "city": "Delhi"}');
+let userStr = localStorage.getItem("user");
+let user = JSON.parse(userStr);
+console.log(user.city);  
+
+
+// Both key and string values ​​must be within double quotes ("").
+
+// undefined, function, or symbol are not allowed.
+
+// Conclusion:
+// The function                                       works
+// JSON.parse()                        converts the JSON string to a JavaScript object
+// JSON.stringify()                   converts the JS object to a JSON string
