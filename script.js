@@ -2440,10 +2440,10 @@ function sayHello() {
 
 // Anonymous Function Expression
 
-let sum = function(x, y) {
-  return x + y;
-}
-console.log(sum(2, 3));
+// let sum = function(x, y) {
+//   return x + y;
+// }
+// console.log(sum(2, 3));
 // A new Function Execution Context will be created upon call of sum() .
 
 
@@ -2604,9 +2604,9 @@ console.log(colors[2]);
 
 // Nested Object
 
-let jsonstr = '{"user":{"name": "ravi", "role": "admin"}}';
-let data = JSON.parse(jsonstr);
-console.log(data.user.role);
+// let jsonstr = '{"user":{"name": "ravi", "role": "admin"}}';
+// let data = JSON.parse(jsonstr);
+// console.log(data.user.role);
 
 
 // Parsing Number
@@ -2618,41 +2618,41 @@ console.log(num + 10);
 
 // Parsing Boolean
 
-let jsonStr = 'true';
-let bool = JSON.parse(jsonStr);
-console.log(bool); 
+// let jsonStr = 'true';
+// let bool = JSON.parse(jsonStr);
+// console.log(bool); 
 
 
 // Parsing null
 
-let jsonStr = 'null';
-let val = JSON.parse(jsonStr);
-console.log(val);  
+// let jsonStr = 'null';
+// let val = JSON.parse(jsonStr);
+// console.log(val);  
 
 
 // Using reviver function
 
-let jsonStr = '{"name": "Neha", "age": 30}';
-let obj = JSON.parse(jsonStr, (key, value) => {
-  if (key === "age") return value + 5;
-  return value;
-});
-console.log(obj.age);
-console.log(obj.name);
+// let jsonStr = '{"name": "Neha", "age": 30}';
+// let obj = JSON.parse(jsonStr, (key, value) => {
+//   if (key === "age") return value + 5;
+//   return value;
+// });
+// console.log(obj.age);
+// console.log(obj.name);
 
 
 // Invalid JSON (Single Quotes)
 
-let jsonStr = "{'name': 'Amit'}"; 
-let obj = JSON.parse(jsonStr);   //wrong format 
+// let jsonStr = "{'name': 'Amit'}"; 
+// let obj = JSON.parse(jsonStr);   //wrong format 
 // only double quotes are valid for JSON
 
 
 // Parsing the Date String
 
-let jsonStr = '{"date": "2025-06-16T12:00:00Z"}';
-let obj = JSON.parse(jsonStr);
-console.log(new Date(obj.date)); 
+// let jsonStr = '{"date": "2025-06-16T12:00:00Z"}';
+// let obj = JSON.parse(jsonStr);
+// console.log(new Date(obj.date)); 
 
 
 // From localStorage (Browser Example)
@@ -2670,3 +2670,351 @@ console.log(user.city);
 // The function                                       works
 // JSON.parse()                        converts the JSON string to a JavaScript object
 // JSON.stringify()                   converts the JS object to a JSON string
+
+
+
+// map() method - for location determination
+
+// It applies a function to each item in the array and returns a new array
+
+// syntax
+// array.map(function(currentvalue, index, array)) {
+  // /return value
+// }
+
+// let numbers = [1, 2, 3, 4, 5, 6];
+// let evenNumbers = numbers.filter(function(num) {
+//   return num % 2 === 0;
+// });
+
+// console.log(evenNumbers);  
+
+
+
+// reduce() – to summarize or combine
+
+// Syntax:
+array.reduce(function(accumulator, currentValue, index, array) {
+  return updatedAccumulator;
+}, initialValue);
+
+
+
+// let numbers = [1, 2, 3, 4, 5, 6];
+// let sum = numbers.reduce(function(accumulater, currentValue) {
+//   return accumulater + currentValue;
+// }, 0);
+
+// console.log(sum);
+
+
+
+// filter() – for sorting
+
+// array.filter(function(currentValue, index, array) {
+//   return condition;
+// });
+
+
+let numbers = [1, 2, 3, 4, 5, 6];
+let evenNumbers = numbers.filter(function(num) {
+  return num % 2 === 0;
+});
+
+console.log(evenNumbers); 
+
+
+// Method                            Work                                   Output
+// map()                     Converts every item to a                      new array
+// filter()                     Sorts some items to a                      new array
+// reduce()               Converts all items to a single value       A value (number, string, object etc.)
+
+
+
+const students = [
+{name: "ravi", marks: 15},
+{name: "priya", marks: 14},
+{ name: "Amit", marks: 60 },
+{ name: "Neha", marks: 25 },
+{ name: "Sonal", marks: 90 }
+];
+
+const passedstudents = students.filter(s => s.marks >= 20);
+const passednames = passedstudents.map(s => s.name);
+const totalMarks = passedstudents.reduce((sum, s) => sum + s.marks, 0);
+
+console.log("passedstudents:", passednames);
+console.log("totalMarks:", totalMarks);
+
+
+
+
+//Declaration
+
+// "Declaration" in JavaScript means defining or declaring a variable, function or constant, so that we can use it later.
+// It is a way to tell the JavaScript interpreter that a variable, function or constant is going to
+
+// Variable Declaration (var, let, const)
+
+// var – old method(function scope)
+var naam = "Rahul";
+console.log(naam);  
+
+// let – new method (block scope)
+let age = 25;
+console.log(age);
+
+
+// const - constant variable (cannot change)
+
+const country = "India";
+console.log(country);
+
+
+// function declaration
+function greet() {
+  console.log("hello how are you");
+}
+greet();
+
+
+// Arrow function
+
+// const add = (a, b) => {
+//   return a + b;
+// };
+// console.log(add(2, 3)); 
+
+
+//  Object Declaration
+
+let person = {
+  name: "Amit",
+  age: 30
+};
+console.log(person.name);
+
+
+// Array Declaration
+
+// let colors = ["red", "green", "blue"];
+// console.log(colors[1]);
+
+
+// Function Expression Declaration
+
+let square = function(n) {
+  return n*n;
+};
+console.log(square(5));
+
+
+// Class Declaration (ES6)
+
+class Car {
+  constructor(name) {
+    this.name = name;
+  }
+  drive() {
+    console.log(this.name + " is driving.");
+  }
+}
+
+let myCar = new Car("BMW");
+myCar.drive();
+
+
+// Destructuring Declaration
+
+// const students = {name: "riya", age: 20};
+// const {name, age} = students;
+// console.log(name);
+// console.log(age);
+
+
+
+// Method                            Name                               Scope / Attribute
+// var                        Variable declaration                Function scope, redeclare possible
+// let                        Block-scoped variable               Modern, no redeclare
+// const                      Constant variable                   No reassignment allowed
+// function                   Function declaration                     Hoisted
+// =>                           Arrow function                       Shorter syntax
+// object                      Object declaration                 { key: value } structure
+// array                         Array declaration                    List of values
+// function expression        Function as variable                Anonymous function
+// class                         Class declaration                 Blueprint for objects
+// destructuring               Extract values                      ​​Short syntax for access
+
+
+
+
+// the detailed difference between var, let, and const in JavaScript in Hindi. All three are ways to declare variables, but there is a lot of difference in their behavior.
+//  Scope 
+// Keyword	         Scope 
+// var	            Function Scope
+// let             	Block Scope
+// const	          Block Scope
+
+
+function test() {
+  if (true) {
+    var a = 10;
+    let b = 20;
+    const c = 30;
+  }
+  console.log(a); 
+  console.log(b);  
+  console.log(c);  
+}
+test();
+
+
+// Hoisting
+
+// Keyword	    Hoisted	          Value Initialized?
+// var	          Yes	                Undefined
+// let	          Yes	             No (temporal dead zone)
+// const	        Yes	             No (temporal dead zone)
+
+
+console.log(a); 
+var a = 5;
+
+console.log(b); 
+let b = 10;
+
+console.log(c); 
+const c = 15;
+
+
+// Re-declaration
+
+// Keyword           Re-declare in same scope
+// var	                  Allowed
+// let	                  Not Allowed
+// const	                Not Allowed
+
+
+var a = 10;
+var a = 20;  //  Allowed
+
+let b = 30;
+// let b = 40;  // Error
+
+const c = 50;
+// const c = 60; //error
+
+
+// Reassignment(give new value)
+
+var x = 1;
+x = 2; 
+
+let y = 5;
+y = 6; 
+
+const z = 10;
+// z = 11; // 
+console.log(x);
+console.log(y);
+console.log(z);
+
+// But if const is an object or array, the data inside it can be changed:
+
+const person = {name: "aman"};
+person.name= "aman kumar";
+console.log(person);
+
+
+// Feature	              var	                    let	                 const
+// Scope	            Function scope	         Block scope	           Block scope
+// Hoisting	          Yes (undefined)	         Yes (TDZ Error)    	  Yes (TDZ Error)
+// Re-declaration	        Allowed	               Not allowed	           Not allowed
+// Reassignment	          Allowed	               Allowed	               Not allowed
+// Use Case	              old code	            General use	        Constants, config
+
+
+// Conclusion
+
+// It is always better to use let and const.
+// Use const when you don't need to change the value of the variable.
+// Use let when you need to change the value.
+// var is now less used in modern JS.
+
+
+
+
+// expression
+
+// Expression in JavaScript means any code that computes some value.
+// Whenever something returns a value, it is called an Expression.
+
+// Expression is the code that produces a value in JavaScript.
+// It can be a combination of variable, value, operator, function call etc.
+
+
+//  Value Expression
+
+42 //This is a simple expression that gives the value of the number 42.
+
+
+//String Expression
+"Hello, World!" //This is a string expression that gives the value of the string "Hello
+
+
+// Arithmetic Expression
+
+5 + 3 * 2 //This will return 11. This is a mathematical expression.
+
+
+//  Logical Expression
+
+10 > 5 && 5 < 8 //This expression will return true.
+
+
+//  Assignment Expression 
+
+let a = 10 //This assigns the expression 10 to the variable a.
+
+
+// Function Call Expression
+
+Math.sqrt(25) //This expression will find the square root of 25 and return 5.
+
+
+// Ternary Expression (Condition check)
+
+let result = (5 > 3) ? "Yes" : "No"; //this statement returns true because the condition is true.
+
+
+
+// Array Expression
+
+[1, 2, 3][0] //This expression returns the first element 1 of the array.
+
+
+
+// Object Property Expression
+
+let person = { name: "Ravi" };
+person.name //This expression returns "Ravi".
+
+
+// Function Expression
+
+let greet = function(name) {
+  return "Hello " + name;
+};
+
+greet("Amit"); 
+// This is a function expression that returns a value.
+
+
+// Type                        	    Examples
+// Literal Expression	            10, "hello", true
+// Arithmetic Expression	        2 + 3 * 5
+// Logical Expression	            a > b, true && false
+// Function Call	                    sum(5, 10)
+// Assignment                    	let x = 5 + 2
+
+// An "Expression" is any code that returns a value.This is the most basic and important concept of JavaScript.
