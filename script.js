@@ -3449,3 +3449,10 @@ function checkPassword(password) {
 console.log(checkPassword("abc")); 
 
 
+
+// Hoisting
+
+// Keyword	    Hoisted	          Value Initialized?
+// var	          Yes	                Undefined
+// let	          Yes	             No (temporal dead zone)
+// const	        Yes	             No (temporal dead zone)
