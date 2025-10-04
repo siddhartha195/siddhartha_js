@@ -3456,3 +3456,118 @@ console.log(checkPassword("abc"));
 // var	          Yes	                Undefined
 // let	          Yes	             No (temporal dead zone)
 // const	        Yes	             No (temporal dead zone)
+
+
+// add two numbers
+let p = 5, q = 6;
+console.log(p+q);
+
+
+//how to check even or odd numbers
+
+let n = 14;
+console.log(n % 2 ===0 ? "even":"odd");
+
+
+//find maximum of two numbers
+
+let x = 20, y = 18;
+console.log(x > y ? x : y);
+
+
+//factorial using loop
+
+let num = 5, fact =1;
+for (let i = 1; i <= num; i++ ){fact *= i;}
+console.log (fact);
+
+
+//Reverse a string
+
+let str = "hello";
+console.log(str.split("").reverse().join("")); 
+
+
+//Palindrome check
+
+let s = "madam";
+console.log(s === s.split("").reverse().join(""));
+
+
+//Sum of array
+
+let arr = [1,2,3,4,5];
+console.log(arr.reduce((a,b)=>a+b,0));
+
+//Find largest in array
+
+let arr = [10,25,3,99,45];
+console.log(Math.max(...arr));
+
+
+//Find smallest in array
+
+let arr = [10,25,3,99,45];
+console.log(Math.min(...arr));
+
+
+//Fibonacci series
+
+let n = 5, a=0,b=1;
+for(let i=0;i<n;i++){ console.log(a); [a,b]=[b,a+b]; }
+
+
+//Count vowels in string
+
+let str = "javascript";
+console.log(str.match(/[aeiou]/gi).length); 
+
+
+//Object example
+
+let user = {name:"Siddhartha", age:22};
+console.log(user.age);
+
+
+//Array map
+
+let arr = [1,2,3];
+console.log(arr.map(x=>x*2));
+
+
+//Array filter
+
+let arr = [1,2,3,4,5];
+console.log(arr.filter(x=>x%2===0)); 
+
+
+//Array reduce
+
+let arr = [1,2,3,4];
+console.log(arr.reduce((a,b)=>a*b,1)); 
+
+
+//Destructuring
+
+let [a,b] = [10,20];
+console.log(a,b);
+
+
+//Spread operator
+
+let arr = [1,2,3];
+let arr2 = [...arr,4,5];
+console.log(arr2);
+
+
+
+//Default parameter
+
+function greet(name="Guest"){ return "Hello " + name; }
+console.log(greet());
+
+
+// Arrow function
+
+let add = (x,y)=>x+y;
+console.log(add(5,10));
