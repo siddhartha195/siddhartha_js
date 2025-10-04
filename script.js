@@ -2789,11 +2789,11 @@ greet();
 
 //  Object Declaration
 
-let person = {
-  name: "Amit",
-  age: 30
-};
-console.log(person.name);
+// let person = {
+//   name: "Amit",
+//   age: 30
+// };
+// console.log(person.name);
 
 
 // Array Declaration
@@ -2878,14 +2878,14 @@ test();
 // const	        Yes	             No (temporal dead zone)
 
 
-console.log(a); 
-var a = 5;
+// console.log(a); 
+// var a = 5;
 
-console.log(b); 
-let b = 10;
+// console.log(b); 
+// let b = 10;
 
-console.log(c); 
-const c = 15;
+// console.log(c); 
+// const c = 15;
 
 
 // Re-declaration
@@ -2896,35 +2896,35 @@ const c = 15;
 // const	                Not Allowed
 
 
-var a = 10;
-var a = 20;  //  Allowed
+// var a = 10;
+// var a = 20;  //  Allowed
 
-let b = 30;
-// let b = 40;  // Error
+// let b = 30;
+// // let b = 40;  // Error
 
-const c = 50;
+// const c = 50;
 // const c = 60; //error
 
 
 // Reassignment(give new value)
 
-var x = 1;
-x = 2; 
+// var x = 1;
+// x = 2; 
 
-let y = 5;
-y = 6; 
+// let y = 5;
+// y = 6; 
 
-const z = 10;
-// z = 11; // 
-console.log(x);
-console.log(y);
-console.log(z);
+// const z = 10;
+// // z = 11; // 
+// console.log(x);
+// console.log(y);
+// console.log(z);
 
 // But if const is an object or array, the data inside it can be changed:
 
-const person = {name: "aman"};
-person.name= "aman kumar";
-console.log(person);
+// const person = {name: "aman"};
+// person.name= "aman kumar";
+// console.log(person);
 
 
 // Feature	              var	                    let	                 const
@@ -3037,392 +3037,404 @@ console.log(6 === "6");  // false, because === checks both value and type
 // ques2 what is hoisting in js
 
 // Hoisting means that variable and function declarations are moved up before execution.
-console.log(x);
-var x = 5; //undifined
+// console.log(x);
+// var x = 5; //undifined
 
-// ques3 Give the syntax of an Arrow function?
+// // ques3 Give the syntax of an Arrow function?
 
-// syntax of arrow function is (arg) =>
-const add = (a, b) => {
-  return a + b;
-};
-console.log(add(2, 3)); 
+// // syntax of arrow function is (arg) =>
+// const add = (a, b) => {
+//   return a + b;
+// };
+// console.log(add(2, 3)); 
 
-// ques4 - how to make object in js?
-const person = {
-  name: "siddhartha",
-  age: 25,
-  occupation: "software developer"
-};
+// // ques4 - how to make object in js?
+// const person = {
+//   name: "siddhartha",
+//   age: 25,
+//   occupation: "software developer"
+// };
 
-console.log(person.name);
-console.log(person.age);
-console.log(person.occupation);
+// console.log(person.name);
+// console.log(person.age);
+// console.log(person.occupation);
 
 
-// ques5 Tell and explain 3 common methods of array?
+// // ques5 Tell and explain 3 common methods of array?
 
-// map() → Applies the function to each element.
-// filter() → Creates a new array with all elements that pass the test implemented by the provided function
-// reduce() → Applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.
-const numbers = [1, 2, 3, 4, 5];
-const doubleNumbers = numbers.map(x =>
-  x * 2
-  );
-  console.log(doubleNumbers); 
+// // map() → Applies the function to each element.
+// // filter() → Creates a new array with all elements that pass the test implemented by the provided function
+// // reduce() → Applies a function against an accumulator and each element in the array (from left to right) to reduce it to a single value.
+// const numbers = [1, 2, 3, 4, 5];
+// const doubleNumbers = numbers.map(x =>
+//   x * 2
+//   );
+//   console.log(doubleNumbers); 
  
-const evenNumbers = numbers.filter(x =>
-   x % 2 === 0
-  );
-  console.log(evenNumbers); 
+// const evenNumbers = numbers.filter(x =>
+//    x % 2 === 0
+//   );
+//   console.log(evenNumbers); 
 
-const sum = numbers.reduce((accumulator, current) =>
-  accumulator + current
-);
-console.log(sum); 
+// const sum = numbers.reduce((accumulator, current) =>
+//   accumulator + current
+// );
+// console.log(sum); 
 
 
-// ques6 What are closures in JavaScript?
+// // ques6 What are closures in JavaScript?
 
-// A closure is a function that has access to its outer scope, even when the outer function has
-// returned. This is useful for creating private variables and functions that can be accessed 
-// only by the outer function.
+// // A closure is a function that has access to its outer scope, even when the outer function has
+// // returned. This is useful for creating private variables and functions that can be accessed 
+// // only by the outer function.
 
-function outer () {
-  let count = 5;
-  return function inner() {
-    count++;
-    console.log(count);
-  }
-}
-const inner = outer();
-inner(); // 6
+// function outer () {
+//   let count = 5;
+//   return function inner() {
+//     count++;
+//     console.log(count);
+//   }
+// }
+// const inner = outer();
+// inner(); // 6
 
-// ques7 What is the difference between null and undefined?
+// // ques7 What is the difference between null and undefined?
 
-// undefined -> The variable is declared but not given a value.
-// null -> Has an assigned value that is intentionally displayed as "empty".
+// // undefined -> The variable is declared but not given a value.
+// // null -> Has an assigned value that is intentionally displayed as "empty".
 
 
-//ques8 Give an example of a simple Promise.
+// //ques8 Give an example of a simple Promise.
 
-let mypromise = new Promise ((resolve, rejects) => {
-  let success = true;
-  if (success) {
-    resolve("success");
-  } else {
-    rejects("failed");
-  }
-});
-mypromise.then(msg => console.log(msg));
+// let mypromise = new Promise ((resolve, rejects) => {
+//   let success = true;
+//   if (success) {
+//     resolve("success");
+//   } else {
+//     rejects("failed");
+//   }
+// });
+// mypromise.then(msg => console.log(msg));
 
 
-// ques9 What does the map() method do?
+// // ques9 What does the map() method do?
 
-// map() applies a function to each array element and returns a new array
-let nums = [1, 2, 3, 4, 5, 6];
-let result = nums.map(n => n*2);
-console.log(result);
+// // map() applies a function to each array element and returns a new array
+// let nums = [1, 2, 3, 4, 5, 6];
+// let result = nums.map(n => n*2);
+// console.log(result);
 
 
-// ques10 Does map() modify the original array?
+// // ques10 Does map() modify the original array?
 
-// no map does not change original array its creats a new array
-let names = ["amit", "aman", "ankit", "anshuman"];
-let upper = names.map(name => name.toUpperCase());
-console.log(upper);
+// // no map does not change original array its creats a new array
+// let names = ["amit", "aman", "ankit", "anshuman"];
+// let upper = names.map(name => name.toUpperCase());
+// console.log(upper);
 
 
-//ques11  Create a new array by adding 5 to each element
+// //ques11  Create a new array by adding 5 to each element
 
-let arr = [10, 20, 30];
-let newArr = arr.map(n => n + 5);
-console.log(newArr); 
+// let arr = [10, 20, 30];
+// let newArr = arr.map(n => n + 5);
+// console.log(newArr); 
 
 
-// ques12 When do you use the filter() method?
+// // ques12 When do you use the filter() method?
 
-// When we need only some selected items from an array that fulfill a condition.
-let nums = [1, 2, 3, 4, 5];
-let result = nums.filter(n => n % 2 === 0);
-console.log(result);
+// // When we need only some selected items from an array that fulfill a condition.
+// let nums = [1, 2, 3, 4, 5];
+// let result = nums.filter(n => n % 2 === 0);
+// console.log(result);
 
-// ques13 Filter students with more than 50 marks:
-let students = [
-  {name: "amit", marks: 40},
-  {name: "sumit", marks: 45},
-  {name: "suresh", marks: 55},
-  {name: "sachin", marks: 65},
-];
-let passed = students.filter(s => s.marks > 50);
-console.log(passed);
+// // ques13 Filter students with more than 50 marks:
+// let students = [
+//   {name: "amit", marks: 40},
+//   {name: "sumit", marks: 45},
+//   {name: "suresh", marks: 55},
+//   {name: "sachin", marks: 65},
+// ];
+// let passed = students.filter(s => s.marks > 50);
+// console.log(passed);
 
 
-//ques14  What does the filter() method return?
+// //ques14  What does the filter() method return?
 
-// A new array containing only those elements that satisfy the given condition.
-// Remove names starting with 'a' from the list of names:
-let names = ["Ankit", "Raj", "Aman", "Neha"];
-let filtered = names.filter(name => name.startsWith("A"));
-console.log(filtered); 
+// // A new array containing only those elements that satisfy the given condition.
+// // Remove names starting with 'a' from the list of names:
+// let names = ["Ankit", "Raj", "Aman", "Neha"];
+// let filtered = names.filter(name => name.startsWith("A"));
+// console.log(filtered); 
 
 
-// ques15 When do you use reduce() ?
+// // ques15 When do you use reduce() ?
 
-// When we have to convert the array into a single value – like total, average, product, etc.
-let numbers = [1, 2, 3, 4, 5];
-let sum = numbers.reduce((acc, current) =>acc + current, 0);
-console.log(sum);
+// // When we have to convert the array into a single value – like total, average, product, etc.
+// let numbers = [1, 2, 3, 4, 5];
+// let sum = numbers.reduce((acc, current) =>acc + current, 0);
+// console.log(sum);
 
 
-// ques16 Extract the largest number from reduce 
+// // ques16 Extract the largest number from reduce 
 
-let nums = [12, 25, 3, 40, 10];
-let max = nums.reduce((acc, curr) => acc > curr ? acc : curr);
-console.log(max);  
+// let nums = [12, 25, 3, 40, 10];
+// let max = nums.reduce((acc, curr) => acc > curr ? acc : curr);
+// console.log(max);  
 
 
-// ques17 What are the two parameters of reduce() ?
+// // ques17 What are the two parameters of reduce() ?
 
-// Accumulator – result of the previous values ​​accumulated
-// Current Value – the item that is currently being processed
-let numbers = [1, 2, 3, 4, 5];
-let sum = numbers.reduce((acc, current) =>
-  acc + current, 0);
-console.log(sum);
+// // Accumulator – result of the previous values ​​accumulated
+// // Current Value – the item that is currently being processed
+// let numbers = [1, 2, 3, 4, 5];
+// let sum = numbers.reduce((acc, current) =>
+//   acc + current, 0);
+// console.log(sum);
 
 
-// ques18 Add up the prices of all products
+// // ques18 Add up the prices of all products
 
-let products = [
-  { name: "Pen", price: 10 },
-  { name: "Book", price: 50 },
-  { name: "Bag", price: 90 }
-];
-let total = products.reduce((acc, item) => acc + item.price, 0);
-console.log(total);
+// let products = [
+//   { name: "Pen", price: 10 },
+//   { name: "Book", price: 50 },
+//   { name: "Bag", price: 90 }
+// ];
+// let total = products.reduce((acc, item) => acc + item.price, 0);
+// console.log(total);
 
 
-// ques19 Is this currying?
+// // ques19 Is this currying?
 
-function greet(name, message) {
-  return message + ', ' + name;
-} // no this is a normal function
+// function greet(name, message) {
+//   return message + ', ' + name;
+// } // no this is a normal function
 
 
-// ques20 Currying version
+// // ques20 Currying version
 
-function greet(name) {
-  return function(message) {
-    return message + ', ' + name;
-  };
-}
-console.log(greet("Rahul")("Good Morning"));
+// // function greet(name) {
+// //   return function(message) {
+// //     return message + ', ' + name;
+// //   };
+// // }
+// // console.log(greet("Rahul")("Good Morning"));
 
 
-// ques21  Simple Addition using Currying
+// // ques21  Simple Addition using Currying
 
-// const add = a => b => a + b;
-// console.log(add(3)(4));
+// // const add = a => b => a + b;
+// // console.log(add(3)(4));
 
 
-// ques22 Partial use:
-const add2 = add(5);
-console.log(add2(10));
+// // ques22 Partial use:
+// const add2 = add(5);
+// console.log(add2(10));
 
 
-// ques23 Can we create a dynamic addition function using currying?
+// // ques23 Can we create a dynamic addition function using currying?
 
-const add = a => b => c => a + b + c;
-console.log(add(1)(2)(3)); 
+// const add = a => b => c => a + b + c;
+// console.log(add(1)(2)(3)); 
 
-// ques24 Multiplication
+// // ques24 Multiplication
 
-// const multiply = a => b => a * b;
-// console.log(multiply(4)(5));
+// // const multiply = a => b => a * b;
+// // console.log(multiply(4)(5));
 
-// Partial use:
-const multiply = multiply(5);
-console.log(multiply(6));  // 30
+// // Partial use:
+// const multiply = multiply(5);
+// console.log(multiply(6));  // 30
 
 
-// ques25 Multiply 3 numbers:
+// // ques25 Multiply 3 numbers:
 
-const multi3 = a => b => c => a * b * c;
-console.log(multi3(2)(3)(4));
+// const multi3 = a => b => c => a * b * c;
+// console.log(multi3(2)(3)(4));
 
 
-// ques26  Greeting Message
+// // ques26  Greeting Message
 
-const greet = name => message => `${message}, ${name}`;
-console.log(greet("Amit")("Hello"));
+// const greet = name => message => `${message}, ${name}`;
+// console.log(greet("Amit")("Hello"));
 
 
-// ques27 In the below code, what scope is x in?
+// // ques27 In the below code, what scope is x in?
 
-let x = 10;
+// let x = 10;
 
-function show() {
-  console.log(x);
-}
-show();
+// function show() {
+//   console.log(x);
+// }
+// show();
 
 
-// ques28 What will be the output of the below code?
+// // ques28 What will be the output of the below code?
 
-function test() {
-  let x = 5;
-}
-console.log(x); //here we got error becouse x is in function scope we can not access outside of the function
+// function test() {
+//   let x = 5;
+// }
+// console.log(x); //here we got error becouse x is in function scope we can not access outside of the function
 
 
-// ques29 What is Block Scope? Give an example.
+// // ques29 What is Block Scope? Give an example.
 
-{
-  let x = 10;
-  console.log(x); 
-}
-console.log(x);
+// {
+//   let x = 10;
+//   console.log(x); 
+// }
+// console.log(x);
 
 
-// ques30 Which Block Scope follows in var, let, and const?
+// // ques30 Which Block Scope follows in var, let, and const?
 
-// let and const --> block scoped
-// var --> function scoped
+// // let and const --> block scoped
+// // var --> function scoped
 
 
-// ques31 Can we declare a variable of the same name twice inside a function?
+// // ques31 Can we declare a variable of the same name twice inside a function?
 
-function demo() {
-  let x = 10;
-  let x = 20;
-}  //here we got syntax error because let and const does not use again.
+// // function demo() {
+// //   let x = 10;
+// //   let x = 20;
+// // }  //here we got syntax error because let and const does not use again.
 
 
-// ques32 Will the code below work correctly?
+// // ques32 Will the code below work correctly?
 
-function outer() {
-  let x = 10;
-  function inner() {
-    console.log(x);
-  }
-  inner();
-}
-outer(); //yes because inner function usees outer function variable (closuer)
+// function outer() {
+//   let x = 10;
+//   function inner() {
+//     console.log(x);
+//   }
+//   inner();
+// }
+// outer(); //yes because inner function usees outer function variable (closuer)
 
 
-// ques33 Can we overwrite variables of global scope inside a function?
+// // ques33 Can we overwrite variables of global scope inside a function?
 
-let x = 5;
-function change() {
-  x = 10;
-}
-change();
-console.log(x);  //yes because we can update global variable inside function
+// let x = 5;
+// function change() {
+//   x = 10;
+// }
+// change();
+// console.log(x);  //yes because we can update global variable inside function
 
 
-// ques34 What is the Imperial Dead Zone (TDZ)?
+// // ques34 What is the Imperial Dead Zone (TDZ)?
 
-// When a variable is declared with let or const, and it is accessed before declaration - a ReferenceError occurs. This is TDZ.
-console.log(a); 
-let a = 10;
+// // When a variable is declared with let or const, and it is accessed before declaration - a ReferenceError occurs. This is TDZ.
+// console.log(a); 
+// let a = 10;
 
 
-//ques35 Can variables declared inside a function be accessed outside the function?
+// //ques35 Can variables declared inside a function be accessed outside the function?
 
-function calc() {
-  let result = 42;
-}
-console.log(result);
+// function calc() {
+//   let result = 42;
+// }
+// console.log(result);
 
-// no – result is in function scope, from outside you will get undefined/error.
+// // no – result is in function scope, from outside you will get undefined/error.
 
 
 
-// javaScript Error Handling
+// // javaScript Error Handling
 
-// Basic try-catch
-try {
-  let a = b + 10;  // b is not defined
-} catch (error) {
-  console.log("Error: " + error.message);
-}
+// // Basic try-catch
+// try {
+//   let a = b + 10;  // b is not defined
+// } catch (error) {
+//   console.log("Error: " + error.message);
+// }
 
 
-// Arithmetic Error
-try {
-  let result = 10 / 0;
-  console.log(result);
-} catch (err) {
-  console.log("Error: " + err.message);
-}
+// // Arithmetic Error
+// try {
+//   let result = 10 / 0;
+//   console.log(result);
+// } catch (err) {
+//   console.log("Error: " + err.message);
+// }
 
 
-// Type Error
-try {
-  null.f(); 
-} catch (e) {
-  console.log("Error : " + e.message);
-}
+// // Type Error
+// try {
+//   null.f(); 
+// } catch (e) {
+//   console.log("Error : " + e.message);
+// }
 
 
-// Custom Error using throw
-try {
-  let age = 15;
-  if (age < 18) {
-    throw "minor";
-  }
-} catch (e) {
-  console.log("Custom Error: " + e);
-}
+// // Custom Error using throw
+// try {
+//   let age = 15;
+//   if (age < 18) {
+//     throw "minor";
+//   }
+// } catch (e) {
+//   console.log("Custom Error: " + e);
+// }
 
 
-// use of  Error Object 
-try {
-  throw new Error("something is wrong");
-} catch (e) {
-  console.log(e.name);   
-  console.log(e.message); 
-}
+// // use of  Error Object 
+// try {
+//   throw new Error("something is wrong");
+// } catch (e) {
+//   console.log(e.name);   
+//   console.log(e.message); 
+// }
 
 
-// finally block
-try {
-  console.log("Try block");
-} catch (e) {
-  console.log("Error ");
-} finally {
-  console.log("Finally block ");
-}
+// // finally block
+// try {
+//   console.log("Try block");
+// } catch (e) {
+//   console.log("Error ");
+// } finally {
+//   console.log("Finally block ");
+// }
 
 
 // error handling in function
-function divide(a, b) {
-  try {
-    if (b === 0) throw "cannot be divided by 0";
-    return a / b;
-  } catch (e) {
-    return e;
-  }
-}
-console.log(divide(10, 0));
+// function divide(a, b) {
+//   try {
+//     if (b === 0) throw "cannot be divided by 0";
+//     return a / b;
+//   } catch (e) {
+//     return e;
+//   }
+// }
+// console.log(divide(10, 0));
 
 
-// JSON Parse Error
-try {
-  let user = JSON.parse('{"name": "Amit"'); 
-} catch (e) {
-  console.log("JSON Parse Error: " + e.message);
-}
+// // JSON Parse Error
+// try {
+//   let user = JSON.parse('{"name": "Amit"'); 
+// } catch (e) {
+//   console.log("JSON Parse Error: " + e.message);
+// }
 
 
-// DOM Access Error
-try {
-  document.getElementById("myBtn").click(); 
-} catch (e) {
-  console.log("DOM Error: " + e.message);
-}
+// // DOM Access Error
+// try {
+//   document.getElementById("myBtn").click(); 
+// } catch (e) {
+//   console.log("DOM Error: " + e.message);
+// }
 
+
+// // Multiple Custom Conditions
+// function checkPassword(password) {
+//   try {
+//     if (password.length < 6) throw "Password is too short";
+//     if (!/[A-Z]/.test(password)) throw "minimum one capital letter";
+//     return "correct password";
+//   } catch (e) {
+//     return "Error: " + e;
+//   }
+// }
+// console.log(checkPassword("abc")); 
 
 // Multiple Custom Conditions
 function checkPassword(password) {
