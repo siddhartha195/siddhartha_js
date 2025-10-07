@@ -3571,3 +3571,165 @@ console.log(greet());
 
 let add = (x,y)=>x+y;
 console.log(add(5,10));
+
+
+// what is  Closure
+
+function outer() {
+  let count = 0;
+  return function inner() {
+    count++;
+    console.log(count);
+  }
+}
+const counter = outer();
+counter(); 
+counter();
+
+
+// give the output
+
+function createCounter() {
+  let num = 0;
+  return () => ++num;
+}
+let c1 = createCounter();
+console.log(c1(), c1());
+
+
+// DOM (Document Object Model)
+
+// 4. What is the DOM?
+
+//  The DOM represents an HTML document as a tree structure where each node is an element.
+
+// 5. How do you select elements in the DOM?
+//  Using methods like getElementById(), querySelector(), and getElementsByClassName().
+
+// What is hoisting in JavaScript?
+// (Hoisting means variable and function declarations are moved to the top of their scope during the compile phase.)
+console.log(x); 
+var x = 5;
+
+
+// Are let and const hoisted?
+// (Yes, but they stay in the Temporal Dead Zone until declared.)
+
+// What will this print?
+greet();
+function greet() {
+  console.log("Hello!");
+}
+
+
+//What is the event loop?
+
+// (It continuously checks the call stack and task queues to handle asynchronous code in JavaScript.)
+
+
+// what is the output
+
+console.log("A");
+setTimeout(() => console.log("b"),0);
+console.log("c")
+
+// Difference between microtask & macrotask?
+// (Microtasks (Promises) run before macrotasks (setTimeout))
+
+// Destructuring
+// what does this do?
+const[a , b]=[10,20];
+console.log(a,b);
+
+// Object destructuring example:
+const user = { name:"sam", age:22};
+  const {name} = user;
+  console.log(name);
+
+
+//  What does fetch() return?
+// (A Promise that resolves to a Response object.)
+
+fetch("https://api.github.com/users/octocat")
+  .then(res => res.json())
+  .then(data => console.log(data.login));
+
+
+  // Classes & Inheritance
+//  How to create a class?  
+
+class person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+const p = new person ("awadh");
+console.log(p.name);
+
+
+// How to extend a class?
+class Animal {
+  speak() { console.log("Sound"); }
+}
+class Dog extends Animal {
+  bark() { console.log("Woof"); }
+}
+new Dog().speak();
+
+// Spread & Rest Operators
+
+// What does spread operator do?
+let arr = [1,2,3];
+let copy = [...arr];
+console.log(copy);
+
+// What does rest operator do?
+function sum(...nums) {
+  return nums.reduce((a,b)=>a+b);
+}
+console.log(sum(1,2,3));
+// (Collects remaining arguments into an array.)
+
+
+// Callback & Promise Difference
+// What is a callback function?
+setTimeout(() => console.log("Done!"), 1000);
+
+
+// Difference between callback and promise?
+// ans(Promises avoid callback hell and provide better async control using .then() and .catch().)
+
+
+// this Keyword
+// What is this in JavaScript?
+// ans (Refers to the object that owns the current code execution.)
+const obj = {
+  name: "Max",
+  show() { console.log(this.name); }
+};
+obj.show();
+
+
+// Prototype & Inheritance
+// What is the prototype chain?
+// ans (A mechanism by which objects can inherit properties from other objects.)
+
+let arr = [];
+console.log(arr.__proto__ === Array.prototype); 
+
+
+// How can you add a method using prototype?
+
+function car(name) {this.name = name; }
+car.prototype.drive = function() {
+  console.log(this.name + "driving");
+}
+const c1 = new car ( "bmw" );
+c1.drive();
+
+
+// SON Parsing
+//  What will this output?
+let str = '{"name":"Alex","age":25}';
+let obj = JSON.parse(str);
+console.log(obj.name);
