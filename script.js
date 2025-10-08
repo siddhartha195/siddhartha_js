@@ -3733,3 +3733,152 @@ c1.drive();
 let str = '{"name":"Alex","age":25}';
 let obj = JSON.parse(str);
 console.log(obj.name);
+
+
+// What is event delegation?
+// ➡️ A technique where a single event listener on a parent element handles events from its child elements using event bubbling.
+document.querySelector("#list").addEventListener("click", e => {
+  if (e.target.tagName === "LI") console.log(e.target.textContent);
+});
+
+
+// What is debouncing?
+// ➡️ A method to delay function execution until after a certain period of inactivity.
+function debounce(fn, delay){
+  let timer;
+  return(...args) => {
+    clearTimeout(timer);
+    timer=setTimeout(() => fn(...args), delay);
+  };
+}
+
+
+// What is throttling?
+// ➡️ Ensures a function runs only once in a given time interval, even if triggered multiple times.
+function throttle(fn, limit){
+  let waiting=false;
+  return function(...args){
+    if(!waiting){
+      fn(...args);
+      waiting=true;
+      setTimeout(()=>waiting=false,limit);
+    }
+  };
+}
+
+
+// Difference between call, apply, and bind?
+// call() → immediately invokes with arguments separated by commas.
+
+// apply() → immediately invokes with arguments as an array.
+
+// bind() → returns a new function.
+
+function greet(city){ console.log(this.name + " from " + city); }
+const person={name:"John"};
+greet.call(person,"Delhi");
+
+// Example using bind:
+let user = { name:"Ava" };
+function say(){ console.log(this.name); }
+let bound = say.bind(user);
+bound();
+
+// Modules (import/export)
+
+//How to export and import a function?
+
+// math.js
+export function add(a,b){return a+b;}
+// main.js
+import { add } from './math.js';
+console.log(add(2,3));
+
+// What are the advantages of modules?
+// ➡️ Code reusability, maintainability, and avoiding global namespace pollution.
+
+
+// Generators
+//  What is a generator function?
+
+// ➡️ A special function that can pause and resume its execution using yield.
+function* numbers(){
+  yield 1;
+  yield 2;
+}
+let gen = numbers();
+console.log(gen.next().value);
+
+
+// Use case of generators?
+// ➡️ Useful for lazy evaluation, handling asynchronous tasks, and infinite sequences
+
+
+// What are Symbols in JavaScript?
+// ➡️ Unique and immutable identifiers, often used as object property keys.
+const id = Symbol("id");
+const user = { [id]:101};
+console.log(user[id]);
+
+// What is a WeakMap?
+// ➡️ A collection of key-value pairs where keys must be objects and are garbage-collected when not referenced.
+let wm = new WeakMap();
+let obj = {};
+wm.set(obj, "data");
+obj = null;
+
+
+// What is the output of this code?
+let a = [1, 2, 3];
+let b = a;
+b.push(4);
+console.log(a);
+
+
+// What will this print?
+console.log(typeof null);
+
+
+// What is the difference between for...in and for...of?
+
+// ➡️ for...in loops over keys (property names),
+// for...of loops over values (iterables).
+
+let arr = [10, 20, 30, 40];
+for (let i in arr) console.log(i);
+for (let val of arr ) console.log(val);
+
+
+// What will this output?
+console.log([1+2],[3+4]);
+
+
+// What is the output?
+function foo() {
+  console.log(a);
+  var a = 10;
+}
+foo();
+
+
+// How can you clone an object?
+
+// ➡️ Use spread operator or Object.assign()
+let user = { name: "John", age: 25 };
+let clone1 = { ...user };
+let clone2 = Object.assign({}, user);
+
+
+// What is a pure function?
+// ➡️ A function that returns the same output for the same input and has no side effects.
+
+function add(a, b) {
+  return a + b; 
+}
+
+
+
+// What will the output be?
+console.log('1');
+setTimeout(() => console.log('2'), 0);
+console.log('3');
