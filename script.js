@@ -3790,6 +3790,7 @@ bound();
 
 // math.js
 export function add(a,b){return a+b;}
+import { version } from 'os';
 // main.js
 import { add } from './math.js';
 console.log(add(2,3));
@@ -3882,3 +3883,253 @@ function add(a, b) {
 console.log('1');
 setTimeout(() => console.log('2'), 0);
 console.log('3');
+
+
+// basic closure example
+
+function outer() {
+  let count = 0;
+  return function inner() {
+    count++;
+    console.log(count);
+  }
+}
+const counter = outer();
+counter();
+counter();
+counter();
+counter();
+
+
+// independent closures
+function createCounter() {
+  let value = 0;
+  return () => ++value;
+}
+let c1 = createCounter();
+let c2 = createCounter();
+console.log(c1(), c1(), c2());
+
+// (Each call to createCounter() creates its own closure (independent variable value).)
+
+
+// closure with parameters
+
+function multiplier(factor) {
+  return function (x) {
+    return x * factor; 
+  };
+}
+let double = multiplier(6);
+console.log(double(4));
+
+// (The inner function remembers factor = 2 via closure.)
+
+
+//closure inside a loop(var problem)
+
+for (var i = 1; i <= 5; i++ ) {
+  setTimeout(() => console.log(i), 1000);
+}
+
+// (All callbacks share the same i (because var is function-scoped).)
+
+// fix version
+for (let i = 1; i <= 6; i++) {
+  setTimeout (() => console.log(i), 1000);
+}
+
+
+//data privacy with closure
+
+function secret() {
+  let pass = "qwe1452";
+  return {
+    get: () => pass,
+    set: (value) => pass = value
+  };
+}
+const obj = secret();
+obj.set("mnb123");
+console.log(obj.get());
+
+// (Closure keeps password private — only accessible via get() and set().)
+
+
+//closure and return 
+function outer () {
+  let name = "siddhartha";
+  function inner() {
+    return "I LOVE " + name;
+  
+  }
+  return inner;
+} 
+let say = outer();
+console.log(say());
+
+
+// closure with setTimeout
+
+function delayedMessage(msg, delay) {
+  setTimeout(() => console.log(msg), delay);
+}
+delayedMessage("hi there!", 1000);
+
+//(Because the arrow function inside setTimeout forms a closure over msg and remembers its value.)
+
+
+// IIFE with Closure
+
+const counter = (function() {
+  let count = 0;
+  return function() {
+    count++;
+    return count;
+  }
+})();
+console.log(counter());
+console.log(counter());
+
+//(n IIFE creates a closure immediately — keeps count in memory.)
+
+
+
+// Nested Closures
+function a() {
+  let x = 5;
+  return function b() {
+    let y = 10;
+    return function c() {
+      console.log(x + y);
+    }
+  }
+}
+a()()();
+
+//(Each function closes over the variables of its parent scope.)
+
+
+// Closure in Event Handlers
+function setupButton() {
+  let count = 0;
+  document.querySelector("#btn").addEventListener("click", () => {
+    count++;
+    console.log(`Clicked ${count} times`);
+  });
+}
+setupButton();
+
+//(the event listener remembers count from the outer function’s scope even after setupButton() has finished.)
+
+
+
+// What is asynchronous JavaScript?
+
+console.log("Start");
+setTimeout(() => console.log("Async Task"), 1000);
+console.log("End");
+
+// (setTimeout runs asynchronously (after 1 second) — it doesn’t block the main thread.)
+
+
+// Callback Example
+function fetchData(callback) {
+  setTimeout(() => {
+    callback("Data loaded");
+  }, 1000);
+}
+fetchData(msg => console.log(msg));
+
+// (callback runs only when asynchronous code (setTimeout) completes.)
+
+
+//Callback Hell
+
+setTimeout(() => {
+  console.log("1");
+  setTimeout(() => {
+    console.log("2");
+    setTimeout(() => console.log("3"), 1000);
+  }, 1000);
+}, 1000);
+
+// ➡️ Answer:
+// This creates callback hell (pyramid of doom) — code becomes hard to read and maintain.
+
+
+// Promise Basics
+let promise = new Promise((resolve, reject) =>{
+  setTimeout(() => resolve("success!"), 1000);
+});
+promise.then (res => console.log(res));
+
+//Explanation: Promise resolves asynchronously — .then() runs when resolved.
+
+
+// Promise Chain
+
+Promise.resolve(2)
+  .then(num => num * 2)
+  .then(num => num + 3)
+  .then(console.log);
+
+// Each .then() passes its result to the next one.
+
+
+// Async/Await Example
+async function fetchData() {
+  return "Data fetched";
+}
+fetchData().then(console.log);
+
+// An async function always returns a Promise.
+
+
+// Using await with a Promise
+function getNumber() {
+  return new Promise(resolve => setTimeout(() => resolve(10), 1000));
+}
+
+async function show() {
+  const num = await getNumber();
+  console.log(num);
+}
+show();
+
+// Explanation: await pauses execution until the Promise resolves.
+
+
+// Error Handling in Async Code
+
+async function fetchData() {
+  throw new Error("Something went wrong!");
+}
+fetchData().catch(err => console.log(err.message));
+
+// Event Loop Question
+
+console.log("A");
+setTimeout(() => console.log("B"), 0);
+Promise.resolve().then(() => console.log("C"));
+console.log("D");
+
+// Promise.then() (microtask) runs before setTimeout() (macrotask).
+
+
+// Parallel Async Tasks
+async function task(name, delay) {
+  return new Promise(res => setTimeout(() => res(name), delay));
+}
+
+async function run() {
+  const results = await Promise.all([
+    task("A", 1000),
+    task("B", 500),
+    task("C", 2000)
+  ]);
+  console.log(results);
+}
+run();
+
+// Promise.all() waits for all promises to finish — total time = longest delay (2s).
