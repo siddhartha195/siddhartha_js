@@ -185,14 +185,21 @@ console.log(document); //accessing html document
 
    <!-- Real-life Asynchronous Event – Button Click -->
 <script>
-  document.querySelector("button").addEventListener("click", async () => {
-  let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-  let todo = await response.json();
-  console.log("find todo:", todo);
-});
+//   document.querySelector("button").addEventListener("click", async () => {
+//   let response = await fetch('https://jsonplaceholder.typicode.com/todos/1');
+//   let todo = await response.json();
+//   console.log("find todo:", todo);
+// });
+
+function handleclick(massage) {
+  return function() {
+    alert (massage);
+  }
+}
+document.querySelector("#btn").addEventListener("click", handleclick("button clicked!"));
 </script>
 
 </body>
 
 </html>
-
+<!-- -->

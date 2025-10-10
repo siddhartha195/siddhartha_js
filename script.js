@@ -4133,3 +4133,209 @@ async function run() {
 run();
 
 // Promise.all() waits for all promises to finish — total time = longest delay (2s).
+
+
+
+// What is the DOM in JavaScript?
+
+Example:
+
+document.body.style.backgroundColor = "lightblue";
+
+
+Answer:
+// DOM stands for Document Object Model — it represents the structure of an HTML page as a tree of nodes.
+// You can use JavaScript to read, modify, or create elements dynamically.
+
+
+// how to select an element by id
+let title = document.getElementById("maintitle");
+title.style.color = "blue";
+
+
+// what is queryselector() and querySelectorAll()?
+let item = document.querySelector(".list-item");
+let allItem = document.querySelectorAll(".list-item");
+
+
+Answer:
+// querySelector() → selects first matching element.
+// querySelectorAll() → returns NodeList (all matching elements).
+
+
+// How to create and add a new element to the page?
+let para = document.createElement("p");
+para.textContent = "Hello, DOM!";
+document.body.appendChild(para);
+
+// Answer:
+// createElement() creates a new HTML element in memory, and appendChild() adds it to the DOM.
+
+
+// How to remove an element?
+let element = document.getElementById("removeMe");
+element.remove();
+
+// Answer:
+// The .remove() method deletes the selected node from the DOM.
+
+
+// How to change attributes of an element?
+let img = document.querySelector("img");
+img.setAttribute("src", "newimage.jpg");
+img.setAttribute("alt", "Updated image");
+
+// Answer: setAttribute() modifies or adds HTML attributes dynamically.
+
+
+// How to modify CSS styles using JavaScript?
+let box = document.querySelector(".box");
+box.style.backgroundColor = "tomato";
+box.style.padding = "20px";
+
+// Answer: Use .style property to directly change CSS values from JS.
+
+
+// How to handle events in the DOM?
+document.querySelector("#btn").addEventListener("click", () => {
+  alert("Button clicked!");
+});
+
+// Answer: addEventListener() attaches an event handler without overwriting existing ones.
+
+
+// What is Event Delegation?
+document.querySelector("#list").addEventListener("click", (e) => {
+  if (e.target.tagName === "LI") console.log(e.target.textContent);
+});
+
+// Answer: Event delegation lets a parent element handle events for its child elements using event bubbling — more efficient than adding many listeners.
+
+
+// How to get and change inner text or HTML?
+let div = document.querySelector("#info");
+console.log(div.textContent);
+div.innerHTML = "<b>Updated HTML!</b>";
+
+// Answer:
+// .textContent → gets or sets plain text
+// .innerHTML → gets or sets HTML code inside the element
+
+
+
+// What is Currying in JavaScript?
+function add(a) {
+  return function (b) {
+    return a+b;
+  }
+}
+console.log(add(5)(4));
+
+// Answer: Currying is a technique of transforming a function with multiple arguments into a sequence of functions, each taking one argument.
+
+
+// Convert a normal function into a curried function.
+function multiply(a, b, c) {
+  return a * b * c;
+}
+function curry(fn) {
+  return function (a) {
+    return function(b) {
+      return function (c) {
+        return fn (a, b, c);
+      }
+    }
+  }
+}
+const curriedMultiply = curry(multiply);
+console.log(curriedMultiply(2) (3) (5));
+
+// Answer: Currying breaks the original function into smaller ones.
+
+
+// Currying with Arrow Functions
+const add = a => b => c => a + b + c;
+console.log(add(4)(9)(8));
+
+// Answer: Currying works perfectly with arrow functions too.
+
+
+// Partial Application using Currying
+function add(a) {
+  return function(b) {
+    return a + b;
+  }
+}
+const add5 = add(5);
+console.log(add5(10));
+
+// Answer: You can “preload” a value and reuse the function later.
+
+
+// Currying for Reusability
+function greet(greeting) {
+  return function(name) {
+    return `${greeting}, ${name}!`;
+  }
+}
+const sayHello = greet("Hello");
+console.log(sayHello("siddhartha"));
+
+// Answer: Currying makes functions reusable and customizable
+
+
+// Using Currying for Calculations
+function power(a) {
+  return function (b) {
+    return Math.pow(a, b);
+  } 
+}
+console.log(power(4)(2));
+
+// Currying helps in creating function templates like power(2) → square/cube base.
+
+
+// Currying with Multiple Returns
+
+function volume(l) {
+  return function (w) {
+    return function (h) {
+      return 1 * w * h;
+
+    }
+  }
+}
+console.log(volume(2)(3)(4));
+
+
+// Currying in Event Handling
+function handleclick(massage) {
+  return function() {
+    alert (massage);
+  }
+}
+document.querySelector("#btn").addEventListener("click", handleclick("button clicked!"));
+
+
+// Currying vs Normal Function
+// Normal
+function addNormal(a, b) {
+  return a + b;
+}
+// Curried
+const addCurried = a => b => a + b;
+
+console.log(addNormal(3, 4));
+console.log(addCurried(3)(4));
+
+
+// Practical Currying – Tax Calculator
+function taxCalculator (tax) {
+  return function (amount) {
+    return amount + (amount + tax);
+  }
+}
+const gst = taxCalculator(0.15);
+console.log(gst(2000));
+
+// Currying is perfect for configurable logic like taxes, discounts, etc.
