@@ -2,7 +2,7 @@
 //  const mysym = Symbol("key1")
 
 const { rejects } = require("assert");
-const { log, info } = require("console");
+const { log, info, error } = require("console");
 const { get } = require("http");
 const { resolve } = require("path");
 
@@ -4339,3 +4339,285 @@ const gst = taxCalculator(0.15);
 console.log(gst(2000));
 
 // Currying is perfect for configurable logic like taxes, discounts, etc.
+
+
+// what is error handling in js 
+// ans-- error handling in js means catching, detecting, responding to runtime error so that 
+// the script does't crash the program
+
+try {
+  let result = 10 / 0;
+  console.log(result);
+  throw new Error("Custom error!");
+} catch (err) {
+  console.log("Error caught:", err.message);
+} finally {
+  console.log("Code finished.");
+}
+
+
+// What is the purpose of try...catch?
+try {
+  console.log(x); // x is not defined
+} catch (err) {
+ console.log("Error:", err.message);
+}
+
+// Answer: try...catch prevents script crash by catching runtime errors.
+
+
+// What is the use of finally block?
+
+try {
+  throw new Error("Oops!");
+} catch (err) {
+  console.log(err.message);
+} finally {
+  console.log("This runs always");
+}
+
+
+
+// How do you create a custom error?
+try {
+  throw new Error("invalid Input!");
+} catch (err) {
+  console.log(err.name, "-", err.message);
+}
+
+
+// What happens if no catch is used?
+try {
+  console.log(a);
+} finally {
+  console.log("Finally runs");
+}
+
+// Answer: If an error occurs and no catch is present, the program stops after executing finally.
+
+
+// Can we nest try...catch blocks?
+try{
+  try{
+    throw new Error("Inner error");
+  } catch (e) {
+    console.log("handled:", e.message);
+    throw new Error("outer error");
+  }
+} catch (e) {
+  console.log("caught again:", e.message);
+}
+
+
+
+// What is the output of this code?
+try {
+  JSON.parse("{name: 'jhon'}");
+} catch(err) {
+  console.log("JSON Error:, err.name")
+}
+
+// JSON keys must be in double quotes. Invalid JSON causes a SyntaxError.
+
+
+// What happens with asynchronous errors?
+try {
+  setTimeout(() => {
+    throw new Error("async Errorr!");
+  }, 1000);
+} catch (err) {
+  console.log("caught:" , err.message);
+}
+
+// (Explanation:try...catch can’t catch errors inside asynchronous callbacks.You must handle it inside the callback.)
+
+// correct version 
+
+setTimeout(() =>{
+  try {
+    throw new Error("async Eroor");
+  } catch (err) {
+    console.log("caught:", err.message);
+  }
+}, 1000)
+
+
+// Error Handling in Promises
+Promise.reject("something went wrong")
+ .catch(err => console.log("caught:" , err));
+
+// (.catch handles error in promise)
+
+
+// Error Handling with Async/Await
+async function fetchData() {
+  try{
+    throw new Error("network Error");
+  } catch (err) {
+    console.log("caught:", err.message)
+  }
+}
+fetchData();
+
+
+// What is Error.name and Error.message?
+try {
+  throw new TypeError("Invalid type!");
+} catch (err) {
+  console.log(err.name);
+  console.log(err.message);
+}
+
+
+// What is a Closure in JavaScript?
+
+// A closure is created when a function “remembers” its lexical scope (the variables around it) even after the outer function has finished executing.
+// 👉 In simple terms:
+// A closure gives access to variables of an outer function from an inner function — even after the outer function has returned.
+
+function outer() {
+  let count  = 0;
+  return function inner() {
+    count++;
+    console.log(count);
+  }
+}
+
+const counter = outer();
+counter();
+counter();
+
+// ✅ Here, inner() forms a closure that keeps access to count even after outer() has finished.
+
+
+//What will be the output?
+
+
+function outer() {
+  let name = "Siddhartha";
+  return function inner() {
+    console.log("Hello " + name);
+  }
+}
+let greet = outer();
+greet();
+
+// inner() has access to name due to closure.
+
+
+// What happens when we call outer() multiple times?
+function outer() {
+  let count = 0;
+  return function() {
+    count++;
+    console.log(count);
+  }
+}
+let a = outer();
+let b = outer();
+a(); // ?
+a(); // ?
+b(); // ?
+
+// Each call to outer() creates a new closure with its own count.
+
+
+
+// What is printed here?
+function outer() {
+  let data = "JS";
+  return () => console.log(data);
+}
+let fun = outer();
+fun();
+
+// Arrow functions also support closures — fun remembers data.
+
+
+// Closure for Counter
+function counter() {
+  let count = 0;
+  return {
+    increment: () => ++count,
+    decrement: () => --count,
+    get: () => count
+  };
+}
+let c = counter();
+c.increment();
+c.increment();
+console.log(c.get());
+
+// Explanation: count is private — only accessible through closure functions.
+
+
+// Why do we use closures?
+// Answer:
+// Closures are used for:
+// Data privacy
+// State management
+// Callbacks
+// Event handling
+// Functional programming
+
+
+
+// What is output and why?
+for (var i = 1; i <= 3; i++) {
+  setTimeout(() => console.log(i), 1000);
+}
+
+// Explanation:
+// All functions share the same i because var is function-scoped.
+// ✅ Fix using let (block-scoped):
+
+
+// What will happen here?
+function outer() {
+  let secret = "hidden";
+  return function() {
+    return secret;
+  }
+}
+let reveal = outer();
+console.log(reveal());
+
+// Explanation: secret is not accessible directly, but closure allows controlled access.
+
+
+// Nested Closures Example
+function a() {
+  let x = 10;
+  return function b() {
+    let y = 20;
+    return function c() {
+      console.log(x + y);
+    }
+  }
+}
+a()()();
+
+// Explanation: Function c() has access to variables from both b() and a() due to closure chaining.
+
+
+// Closure with setTimeout
+function greet() {
+  let name = "JS";
+  setTimeout(() => {
+    console.log("Hello " + name);
+  }, 1000);
+}
+greet();
+
+
+// IIFE (Immediately Invoked Function) with Closure
+const counter = (function() {
+  let count = 0;
+  return function() {
+    return ++count;
+  }
+})();
+console.log(counter());
+console.log(counter());
+
+// Explanation: An IIFE creates a closure immediately — keeps count private and persistent.
