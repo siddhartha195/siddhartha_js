@@ -4621,3 +4621,110 @@ console.log(counter());
 console.log(counter());
 
 // Explanation: An IIFE creates a closure immediately — keeps count private and persistent.
+
+
+// What is Destructuring in JavaScript?
+// Destructuring is a way to unpack values from arrays or properties from objects into separate variables — in a clean and readable way.
+// 👉 In simple words:
+// It allows you to extract multiple values from arrays or objects in one line.
+
+
+// Array Destructuring
+const arr = [10, 20, 30];
+const [a, b, c] = arr;
+console.log(a, b, c); 
+
+
+// Object Destructuring
+const user = { name: "Siddhartha", age: 22 };
+const { name, age } = user;
+console.log(name, age); 
+
+
+// What is the output of this code?
+const [a, b] = [1, 2];
+console.log(a, b);
+// Explanation: Array destructuring assigns values position-wise.
+
+
+// Skip values in array destructuring
+const [x, , y] = [10, 20, 30];
+console.log(x, y);
+
+// Explanation: The comma , skips the middle element (20).
+
+
+// Default value in destructuring
+const [a = 5, b = 10] = [7];
+console.log(a, b);
+
+// Explanation: a gets 7, b uses default 10 since no second element.
+
+
+// Object destructuring example
+const user = { name: "Alex", age: 25 };
+const { name, age } = user;
+console.log(name, age);
+
+// Explanation: Property names must match the object keys.
+
+
+// Rename variables while destructuring
+const user = { name: "John", age: 30 };
+const { name: userName, age: userAge } = user;
+console.log(userName, userAge);
+
+// Explanation: name property is stored in a variable userName.
+
+
+// Nested object destructuring
+const person = {
+  name: "Siddhartha",
+  address: {
+    city: "Lucknow",
+    zip: 226001
+  }
+};
+const { address: { city, zip } } = person;
+console.log(city, zip);
+
+// Explanation: Nested destructuring extracts from inner objects directly.
+
+
+// Destructuring with function parameters
+function display({ name, age }) {
+  console.log(`${name} is ${age} years old.`);
+}
+display({ name: "Ankit", age: 20 });
+
+// Explanation: You can destructure parameters directly inside the function definition.
+
+
+// Swap variables using destructuring
+
+let a = 10, b = 20;
+[a, b] = [b, a];
+console.log(a, b);
+
+// Explanation: Destructuring allows quick swapping without a temporary variable.
+
+
+// Destructure from array returned by function
+function getValues() {
+  return [1, 2, 3];
+}
+const [x, y] = getValues();
+console.log(x, y);
+
+// Explanation: Values are unpacked from returned array directly.
+
+
+// Combine object & array destructuring
+const users = [
+  { name: "Raj", age: 21 },
+  { name: "Simran", age: 22 }
+];
+const [{ name: firstUser }, { name: secondUser }] = users;
+console.log(firstUser, secondUser);
+
+// Explanation: You can destructure arrays of objects easily.
