@@ -4728,3 +4728,222 @@ const [{ name: firstUser }, { name: secondUser }] = users;
 console.log(firstUser, secondUser);
 
 // Explanation: You can destructure arrays of objects easily.
+
+
+
+// What is JSON in JavaScript?
+// json(javascript object notation) is a data format used to store and exchange data between system
+
+// exm  
+'{"name": "Siddhartha", "age": 22}'
+
+// JSON.stringify() — Object ➡️ String
+const user = {name: "siddhartha", age: 22};
+const jsonStr = JSON.stringify(user);
+console.log(jsonStr);
+
+
+// JSON.parse() — String ➡️ Object
+
+const str = '{"name":"Siddhartha","age":22}';
+const obj = JSON.parse(str);
+console.log(obj.name);
+
+
+
+// What does this output?
+const user = { name: "Raj", age: 25 };
+console.log(JSON.stringify(user));
+
+// JSON.stringify() converts an object into a JSON string.
+
+
+
+// Parse this JSON string into an object
+const str = '{"city":"Delhi","country":"India"}';
+const obj = JSON.parse(str);
+console.log(obj.city);
+
+
+// JSON.parse() converts a JSON string into an object.
+
+
+// What happens if the string is invalid JSON?
+JSON.parse("{name:'John'}");
+
+// JSON strings must use double quotes around keys and values.
+
+
+// What will this print?
+const user = { name: "Aman", age: 23 };
+const str = JSON.stringify(user);
+console.log(typeof str);
+
+// JSON.stringify() always returns a string.
+
+
+// Convert array to JSON
+const arr = [1, 2, 3];
+console.log(JSON.stringify(arr));
+
+// Arrays are valid JSON structures too.
+
+
+// Parse nested object
+const str = '{"user":{"name":"siddhartha","age":22}}';
+const data = JSON.parse(str);
+console.log(data.user.age);
+
+// Nested objects can be accessed using dot notation after parsing.
+
+
+// what happens to undefined or functions when stringfied?
+const obj = { a: 10, b: undefined, c: function(){}};
+console.log(JSON.stringify(obj));
+
+// undefined and functions are ignored by JSON.stringify().
+
+
+// Pretty print JSON
+const obj = {name: "Raj", age: 15};
+console.log(JSON.stringify(obj, null, 2));
+
+// The third parameter 2 adds indentation for readability.
+
+
+// Replacer function in stringify
+const obj = { name: "Raj", age: 21, city: "Delhi" };
+const str = JSON.stringify(obj, ["name", "city"]);
+console.log(str);
+
+// Explanation: The second parameter acts as a filter for properties to include.
+
+
+// Storing & retrieving from localStorage
+const user = { name: "Aman", age: 23 };
+localStorage.setItem("user", JSON.stringify(user));
+
+const data = JSON.parse(localStorage.getItem("user"));
+console.log(data.name);
+
+// Explanation: LocalStorage can only store strings, so we use stringify and parse to convert data back and forth.
+
+
+
+//  What is var, let, and const in JavaScript?
+//example 1 
+var  name = "jhon";
+var name= "deo";
+console.log(name);
+
+
+// example2
+let age = 20;
+age = 25;
+// let age = 30; 
+console.log(age); // 25
+
+// example3
+const PI =3.14;
+console.log(PI)
+
+
+// what is the output
+var x = 10;
+let y = 20;
+const z = 30;
+console.log(x, y, z);
+
+
+// Can you redeclare a variable using var?
+var a = 5;
+var a = 10;
+console.log(a);
+
+// var allows re-declaration in the same scope.
+
+
+// Can you redeclare using let or const?
+let x = 5;
+let x = 10;
+
+Answer:
+Error:
+// SyntaxError: Identifier 'x' has already been declared
+// 🧠 let and const do not allow re-declaration in the same scope.
+
+
+// Difference in block scope
+{
+  var a = 10;
+  let b = 20;
+  const c = 30;
+}
+console.log(a);
+console.log(b);
+
+
+// Explanation:
+// var → function-scoped (available outside block)
+// let and const → block-scoped (only inside {})
+
+
+// What is the output? (Hoisting)
+console.log(a);
+var a = 5;
+
+// Explanation:  var is hoisted but initialized with undefined.
+
+
+// What happens with let?
+console.log(b);
+let b = 10;
+
+// Answer: ReferenceError: Cannot access 'b' before initialization
+// Explanation: let is hoisted but inside Temporal Dead Zone (TDZ) until declared
+
+
+// Reassignment behavior
+let count = 1;
+count = 2; 
+const value = 5;
+value = 10; 
+
+// Answer:
+// ✅ let can be reassigned, ❌ const cannot.
+
+
+// const with objects
+const user = { name: "Raj" };
+user.name = "Simran";
+console.log(user.name);
+
+
+// Function Scope Example
+function test() {
+  if (true) {
+    var a = 1;
+    let b = 2;
+  }
+  console.log(a);
+  console.log(b);
+}
+test();
+
+
+// Explanation: var is function-scoped, let is block-scoped.
+
+
+// Mixing var and let
+var num = 5;
+let num = 10;
+console.log(num);
+
+// Explanation: You cannot redeclare the same variable name using both var and let in the same scope.
+
+
+// ✅ Quick Recap Table
+// Keyword	          Scope	      Re-declare	 Re-assign	    Hoisted	             Use Case
+// var	             Function	    ✅ Yes	       ✅ Yes 	     ✅ Yes	            Legacy code
+// let               Block	        ❌ No	     ✅ Yes	     ✅ Yes (TDZ)	      General use
+// const	            Block	        ❌ No	     ❌ No	       ✅ Yes (TDZ)	      Constants, configs
