@@ -4942,8 +4942,188 @@ console.log(num);
 // Explanation: You cannot redeclare the same variable name using both var and let in the same scope.
 
 
-// ✅ Quick Recap Table
+// ✅ Quick Recap Tableachaaacha 
+
 // Keyword	          Scope	      Re-declare	 Re-assign	    Hoisted	             Use Case
 // var	             Function	    ✅ Yes	       ✅ Yes 	     ✅ Yes	            Legacy code
 // let               Block	        ❌ No	     ✅ Yes	     ✅ Yes (TDZ)	      General use
 // const	            Block	        ❌ No	     ❌ No	       ✅ Yes (TDZ)	      Constants, configs
+
+
+
+// What is Type Coercion in JavaScript?
+// Type Coercion means automatic or implicit conversion of values from one data type to another — done by JavaScript when performing operations with mixed data types (like string + number).
+
+// in simple words -- javascript automatically converts data types to make operations possible
+
+
+// What is the output?
+console.log(5 + "5");
+
+// Explanation: + with string → performs string concatenation.
+
+
+// What is the output?
+console.log("5" - 2);
+
+// Explanation:- operator → forces both sides to numbers, '5' → 5.
+
+
+// What happens here?
+console.log(true + 1);
+
+// explanation:- true → 1, false → 0 in numeric context.
+// 1 + 1 = 2.
+
+
+// Coercion with null
+console.log(null + 1);
+
+//Explanation: null → 0 in numeric context → 0 + 1 = 1. 
+
+
+// Coercion with undefined
+console.log(undefined + 1);
+
+// Explanation: undefined → NaN when converted to number.
+// NaN + 1 = NaN.
+
+
+// Trick with string and number
+console.log('10' + 10 - 5);
+
+// Explanation:
+// Step-by-step:
+// '10' + 10 → '1010' (string concatenation)
+// '1010' - 5 → 1010 - 5 = 1005 (string → number)
+
+
+// Boolean comparison
+console.log(0 == false);
+
+// Explanation: == does type coercion, both sides → 0 == 0.
+
+
+// Strict vs Loose Equality
+console.log(0 === false);
+
+// Explanation: === does not perform coercion.
+// One is number, other is boolean.
+
+
+// Object to primitive coercion
+console.log([1,2] + [3,4]);
+
+
+// Complex coercion
+console.log('5' - '2' + '1');
+
+
+
+// what is scope in javascript 
+// scope detemines where variable can be accessed or modified in your code .
+// it define the visibility of variable --- which parts of the program can "see" or use them.
+// in simple words -- scope tells you where a variable lives and where you can use it.
+
+
+// what is the output
+var a = 1;
+function test() {
+  console.log(a);
+}
+test()
+
+// explanation-- a is a global , so its accessible inside the function 
+
+
+// function scope example
+function demo() {
+  var x = 5;
+}
+console.log(x);
+
+// explanation-- var x is function-scoped, not accessible outside
+
+
+// block scope example
+{
+  let a = 10;
+  const b = 20;
+  var c = 30;
+}
+console.log(c);
+console.log(a);
+
+// Explanation: var → global/block ignored
+// let, const → block-scoped
+
+
+// shadowing example
+let name = "jhon";
+function show () {
+  let name = "deo";
+  console.log(name);
+
+}
+show();
+console.log(name);
+
+// Explanation: Inner name shadows the outer one within its scope.
+
+
+// lexical scope example
+function outer() {
+  let a = 100;
+  function inner() {
+    console.log(a);
+  }
+  inner();
+
+}
+outer();
+
+// Explanation: Inner function can access variables from its outer scope (lexical scope).
+
+
+// variable hoisting inside scope
+function test() {
+  console.log(a);
+  var a = 10;
+}
+test();
+
+// Explanation:
+// var is hoisted, but initialized with undefined.
+
+
+// let and const in TDZ
+{
+  console.log(x);
+  let x = 5;
+}
+
+// Explanation: let and const are hoisted but live in Temporal Dead Zone until declared.
+
+
+// Nested Scope Example
+function outer() {
+  let a = 1;
+  function inner() {
+    let b = 2;
+    console.log(a + b);
+  }
+  inner();
+}
+outer();
+
+// Explanation: Inner function accesses outer variable a → lexical scope.
+
+
+// Global Variable inside function
+function show() {
+  message = "Hello";
+}
+show();
+console.log(message);
+
+// Explanation: Without var/let/const, variable becomes global (bad practice).
