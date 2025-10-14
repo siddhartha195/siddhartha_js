@@ -5127,3 +5127,216 @@ show();
 console.log(message);
 
 // Explanation: Without var/let/const, variable becomes global (bad practice).
+
+
+// function declaration in javascript
+
+// what is function declaration?
+// A function declaration isa way to define a named function in javascript using the function keyword.
+// syntax --
+function functionName(parameters) {
+
+}
+
+// function declaration are hoisting, meaning they can be called before they're defined in the code .
+
+
+// what is function declaration 
+function sayHello() {
+  console.log("hello!");
+}
+sayHello();
+
+// ans- a function declaration defin a reusable block of connected. 
+
+
+// can we call a declaraed function before its definition?
+show ();
+
+function show () {
+  console.log("yes, its works!");
+}
+
+
+
+// what happens if you declare two function with the same name?
+function greet() {
+  console.log("Hii");
+}
+function greet() {
+  console.log("hello");
+}
+greet();
+
+// Explanation: The second declaration overrides the first one.
+
+
+// function with parameters 
+function add(a,b) {
+  return a + b;
+}
+console.log(add(5, 6));
+
+// Explanation: Parameters act as placeholders for input values.
+
+
+// function with return statement
+function multiply(x, y) {
+  let result = x * y;
+}
+console.log(multiply(4,5));
+
+// Explanation: Without return, a function always returns undefined.
+
+
+// Difference between Function Declaration and Function Expression
+console.log(sum(5, 5));
+function sum(a, b) {
+  return a + b;
+}
+
+console.log(sub(5, 5));
+const sub = function(a, b) {
+  return a - b;
+};
+
+// Function Declaration → Hoisted ✅
+// Function Expression → Not hoisted ❌
+
+
+// function inside another function
+function outer() {
+  function inner() {
+    console.log("inner function");
+  }
+  inner();
+}
+outer();
+
+// Explanation: Inner functions are accessible only within their outer function’s scope.
+
+// returning  a function 
+function greet(name) {
+  return function() {
+    console.log("Hello " + name);
+  };
+}
+const sayHi = greet("Siddhartha");
+sayHi();
+
+// Explanation: Function can return another function (used in closures).
+
+
+// default parameters
+function greet(name = "guest") {
+  console.log("Hello " + name);
+}
+greet();
+greet("ayush");
+
+// Explanation: Default parameters are used when no argument is passed.
+
+
+// function returning multiple values ( using array/object)
+function calculate(a, b) {
+  return  { sum: a + b, product: a * b};
+}
+const result = calculate(3, 4);
+console.log(result.sum, result.product);
+
+// Explanation: You can return multiple values using an object.
+
+
+// What is an Expression?
+// An expression is any valid piece of code that produces a value.
+
+// 👉 In simple words: An expression is something that can be evaluated to get a result.
+// You can use expressions inside variables, conditions, loops, or even functions.
+
+// ypes of Expressions
+// Type                                           	Example                                                            Result
+// Arithmetic Expression	                            5 + 3	                                                             8
+// String Expression	                               "Hi" + " JS"	                                                      "Hi JS"
+// Logical Expression	                             5 > 2 && 3 < 10                                                   	true
+// Assignment Expression                            	x = 20	20
+// Function Expression	                            const add = function(a,b){return a+b;}                          Returns a function
+// Ternary Expression	                           age > 18 ? "Adult" : "Minor"	                                    "Adult" or "Minor"
+
+
+// What is the output of this arithmetic expression?
+let x = 10 + 5 * 2;
+console.log(x);
+
+// Explanation: Operator precedence: * runs before + → 10 + (5*2).
+
+
+// what type of expression is that?
+let greeting = "Hello" + " "  + "world";
+console.log(greeting);
+
+// Type: String concatenation expression → produces a string.
+
+
+// Logical Expression Example
+let result = 10 > 5 && 3 < 2;
+console.log(result);
+
+// Explanation: 10 > 5 → true, 3 < 2 → false → true && false → false.
+
+
+// Assignment Expression
+let a = 10;
+let b = (a = 20);
+console.log(b);
+
+// Explanation: (a = 20) is also an expression that returns 20.
+
+
+// Function Expression Example
+const add = function(x, y) {
+  return x + y;
+};
+console.log(add(2, 3));
+
+// Explanation: Here, the function itself is stored in a variable → a function expression.
+
+
+// Ternary Expression Example
+let age = 17;
+let status = age >= 18 ? "Adult" : "Minor";
+console.log(status);
+
+// Explanation: Ternary (?:) is a conditional expression.
+
+
+// Expression inside Template Literal
+let name = "Siddhartha";
+let message = `Hello, ${name.toUpperCase()}!`;
+console.log(message);
+
+// Explanation: Anything inside ${} in template literals is treated as an expression.
+
+
+// Combining Multiple Expressions
+let x = 10;
+let y = 5;
+let result = (x * 2) + (y * 3);
+console.log(result);
+
+// Explanation: Each (x*2) and (y*3) is an expression; combined → larger expression.
+
+
+// Expression Returning Function
+let greet = function() {
+  return "Hello World";
+};
+console.log(greet());
+
+// Explanation: The function itself is an expression stored in a variable.
+// Expression
+3 + 4;
+
+// Statement
+if (true) console.log("JS");
+
+
