@@ -5340,3 +5340,199 @@ console.log(greet());
 if (true) console.log("JS");
 
 
+
+
+
+// what is arrow function ?
+// an arrow function is a shorter and cleaner way to write function introduced in ES6
+// it uses the => ("fat arrow ")syntax 
+
+// Basic arrow function 
+const sayHello = () => console.log("hello js");
+sayHello();
+
+
+// Arrow functon with parameters 
+const add = (a, b) => a + b;
+console.log(add(4,8));
+
+
+
+// multiline arrow function 
+const multiply = (a, b) => {
+  let result = a * b;
+  return result;
+};
+console.log(multiply(4, 9));
+
+// Explanation: When using {}, you must use return.
+
+
+// arrow function returning an object 
+const getUser = () => ({ name: "siddhartha", age: 20});
+console.log (getUser());
+
+// Explanation: Use parentheses () around {} to return an object literal.
+
+
+
+// single parameter without parentheses
+const square = n => n * n;
+console.log(square(6));
+
+
+// arrow function with array method 
+const number = [1, 2, 3, 4];
+const doubled = number.map(n => n * 2);
+console.log(doubled)
+
+// Explanation: Arrow functions are perfect for callbacks (like map, filter, reduce).
+
+// arrow function with this 
+const user = {
+  name: "siddhartha",
+  showName: () => console.log(this.name)
+};
+user.showName();
+
+// Explanation: Arrow functions don’t have their own this — they take it from the outer scope.
+// Here, this refers to the global object, not user.
+
+
+// Normal Function vs Arrow Function (this difference)
+const person = {
+  name: "Ravi",
+  regularFunc: function() {
+    console.log(this.name);
+  },
+  arrowFunc: () => console.log(this.name)
+};
+person.regularFunc();
+person.arrowFunc();
+
+
+// Arrow Function in a Callback
+setTimeout(() => {
+  console.log("Executed after 2 seconds");
+}, 2000);
+
+
+
+// What is Scope?
+// Scope means the current context of your code — the place where variables are accessible or visible.
+// 👉 In simple terms:
+// Scope defines where a variable lives and where you can use it.
+
+
+let x = 10; // global
+
+function show() {
+  let y = 20; // function scope
+  if (true) {
+    let z = 30; // block scope
+    console.log(x, y, z); // ✅ accessible
+  }
+  console.log(x, y); // ✅ z not accessible here
+}
+show();
+
+
+// Global Scope Example
+let name = "siddhartha";
+
+function greet() {
+  console.log("hello " + name);
+}
+greet();
+
+// Explanation: name is global, so accessible inside the function.
+
+
+// Function Scope Example
+function test() {
+  var x = 5;
+}
+console.log(x);
+
+
+// Explanation: var inside function → only available inside that function.
+
+
+// Block Scope Example
+{
+  let a = 10;
+  const b = 20;
+}
+console.log(a);
+
+// Explanation:let and const → block-scoped → not accessible outside {}.
+
+
+// Shadowing Example
+let city = "Delhi";
+function changeCity() {
+  let city = "Mumbai";
+  console.log(city);
+}
+changeCity();
+console.log(city);
+
+// Explanation:Inner city shadows outer city inside function scope.
+
+
+// Lexical Scope Example
+function outer() {
+  let a = 10;
+  function inner() {
+    console.log(a);
+  }
+  inner();
+}
+outer();
+
+// Explanation: Inner function can access outer variables → lexical scope.
+
+
+// var vs let in scope
+if (true) {
+  var x = 10;
+  let y = 20;
+}
+console.log(x);
+console.log(y);
+
+// Explanation: var → function-scoped (ignores blocks)
+// let → block-scoped
+
+
+// Global Variable inside Function
+function createGlobal() {
+  data = "Hello";
+}
+createGlobal();
+console.log(data);
+
+// Explanation: Variable without let/const/var → becomes global (bad practice).
+
+
+// Nested Scope Example
+function first() {
+  let a = 1;
+  function second() {
+    let b = 2;
+    console.log(a + b);
+  }
+  second();
+}
+first();
+
+// Explanation: second() can access variable a from first() due to lexical scope.
+
+
+// Temporal Dead Zone Example
+{
+  console.log(x);
+  let x = 10;
+}
+
+// Explanation: let and const exist in Temporal Dead Zone (TDZ) until initialized.
